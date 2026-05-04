@@ -2,6 +2,20 @@
 
 Dự án này là bài tập thực hành xây dựng hệ thống quản lý người dùng cơ bản theo mô hình MVC, áp dụng các kỹ thuật backend hiện đại.
 
+## 📸 Giao diện Demo
+
+*(Ghi chú: Thay thế các đường link bên dưới bằng link ảnh thực tế của bạn)*
+
+**1. Màn hình Danh sách Người dùng**
+![Danh sách User](<img width="1241" height="282" alt="{6B9D2D92-5D4E-44D5-8F7E-67015231F67A}" src="https://github.com/user-attachments/assets/0eb5b289-8359-42df-af67-217e31007b1e" />
+)
+
+**2. Màn hình Thêm mới**
+![Thêm mới User](<img width="1244" height="764" alt="{313D1D5A-0146-4919-BCC8-03101BEE1774}" src="https://github.com/user-attachments/assets/d102d486-4bb9-4c69-a5d5-900798747732" />)
+
+**3. Màn hình Sửa**
+![Sửa User](<img width="1239" height="519" alt="{7BF84E24-C150-4DE7-95D9-EB64D1690195}" src="https://github.com/user-attachments/assets/f1e73db8-bf4d-48ce-822a-95a60198f2c4" />)
+
 ## 👨‍💻 Thông tin sinh viên
 *   **Họ và tên:** Đinh Nguyễn Đức Duy
 *   **Mã số sinh viên:** 23110193
