@@ -4,8 +4,6 @@ Dự án này là bài tập thực hành xây dựng hệ thống quản lý ng
 
 ## 📸 Giao diện Demo
 
-*(Ghi chú: Thay thế các đường link bên dưới bằng link ảnh thực tế của bạn)*
-
 **1. Màn hình Danh sách Người dùng**
 ![Danh sách User](https://github.com/user-attachments/assets/0eb5b289-8359-42df-af67-217e31007b1e)
 
@@ -32,11 +30,6 @@ Dự án này là bài tập thực hành xây dựng hệ thống quản lý ng
 ## 🛠️ Hướng dẫn cài đặt và chạy dự án
 
 **Bước 1: Clone dự án về máy**
-\`\`\`bash
-git clone https://github.com/ShiroKin7448/Cac-cong-nghe-phan-mem-moi_-Nhom-02_St2_St4_A308.git
-cd Cac-cong-nghe-phan-mem-moi_-Nhom-02_St2_St4_A308/BT01_23110193_DinhNguyenDucDuy
-\`\`\`
-
 **Bước 2: Cài đặt thư viện**
 \`\`\`bash
 npm install
