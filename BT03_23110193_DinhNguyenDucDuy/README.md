@@ -2,8 +2,6 @@
 
 <div align="center">
 
-![Banner](<!-- 📸 DÁN ẢNH BANNER/LOGO DỰ ÁN VÀO ĐÂY -->)
-
 [![Node.js](https://img.shields.io/badge/Node.js-22.x-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express.js-5.x-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-7.x-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
@@ -64,26 +62,26 @@ Dự án xây dựng một ứng dụng **FullStack** hoàn chỉnh bao gồm:
 ### Backend
 | Package | Phiên bản | Mục đích |
 |---------|-----------|----------|
-| `express` | ^5.2.1 | Web framework |
-| `mongoose` | ^9.6.2 | ODM kết nối MongoDB |
-| `bcrypt` | ^6.0.0 | Mã hóa mật khẩu |
-| `jsonwebtoken` | ^9.0.3 | Tạo & xác thực JWT |
-| `nodemailer` | ^6.9.16 | Gửi email qua SMTP |
-| `dotenv` | ^17.4.2 | Quản lý biến môi trường |
-| `cors` | ^2.8.6 | Xử lý Cross-Origin |
-| `ejs` | ^5.0.2 | Template engine |
-| `@babel/node` | ^7.29.0 | Hỗ trợ ES Modules |
-| `nodemon` | ^3.1.14 | Auto-restart khi dev |
+| `express` | 5.2.1 | Web framework |
+| `mongoose`  9.6.2 | ODM kết nối MongoDB |
+| `bcrypt` | 6.0.0 | Mã hóa mật khẩu |
+| `jsonwebtoken` | 9.0.3 | Tạo & xác thực JWT |
+| `nodemailer` | 6.9.16 | Gửi email qua SMTP |
+| `dotenv` | 17.4.2 | Quản lý biến môi trường |
+| `cors` | 2.8.6 | Xử lý Cross-Origin |
+| `ejs` | 5.0.2 | Template engine |
+| `@babel/node` | 7.29.0 | Hỗ trợ ES Modules |
+| `nodemon` | 3.1.14 | Auto-restart khi dev |
 
 ### Frontend
 | Package | Phiên bản | Mục đích |
 |---------|-----------|----------|
-| `react` | ^19.x | UI Framework |
-| `vite` | ^8.x | Build tool |
-| `react-router-dom` | ^7.x | Client-side routing |
-| `axios` | ^1.x | HTTP client |
-| `antd` | ^5.x | UI component library |
-| `@ant-design/icons` | ^5.x | Icon library |
+| `react` | 19.x | UI Framework |
+| `vite` | 8.x | Build tool |
+| `react-router-dom` | 7.x | Client-side routing |
+| `axios` | 1.x | HTTP client |
+| `antd` | 5.x | UI component library |
+| `@ant-design/icons` | 5.x | Icon library |
 
 ---
 
@@ -260,47 +258,45 @@ Base URL: `http://localhost:8080`
 ## 🖼 Giao Diện Ứng Dụng
 
 ### 🏠 Trang Chủ
-<!-- 📸 DÁN ẢNH TRANG CHỦ (http://localhost:5173/) VÀO ĐÂY -->
-![Trang chủ](./screenshots/home.png)
+<img width="1873" height="1026" alt="{CE587F8E-5692-43DA-B77D-6D395DA6D122}" src="https://github.com/user-attachments/assets/b41dbb7b-9256-4527-a970-031e1fdaf139" />
 
 ---
 
 ### 📝 Trang Đăng Ký
-<!-- 📸 DÁN ẢNH TRANG ĐĂNG KÝ (http://localhost:5173/register) VÀO ĐÂY -->
-![Đăng ký](./screenshots/register.png)
+<img width="1873" height="986" alt="{DC9887CF-B81E-42C9-B4CF-A623E3EA2B0B}" src="https://github.com/user-attachments/assets/78ff6979-5927-4dac-992a-16dcd97417cc" />
+
 
 ---
 
 ### 🔑 Trang Đăng Nhập
-<!-- 📸 DÁN ẢNH TRANG ĐĂNG NHẬP (http://localhost:5173/login) VÀO ĐÂY -->
-![Đăng nhập](./screenshots/login.png)
+<img width="1870" height="1009" alt="{DD7F3930-5225-4E9F-8011-901A311EEBE7}" src="https://github.com/user-attachments/assets/b08ff1f9-2773-4e99-b210-7b637c14c68f" />
+
 
 ---
 
 ### 👥 Trang Quản Lý User
-<!-- 📸 DÁN ẢNH BẢNG DANH SÁCH USER (http://localhost:5173/user) VÀO ĐÂY -->
-![Danh sách User](./screenshots/user-list.png)
+<img width="1872" height="962" alt="{6640AA22-BE67-44AA-90C6-C52CF31B92BF}" src="https://github.com/user-attachments/assets/c2a0f81b-22a0-40c1-98a2-05ceb54fab66" />
 
 ---
 
 ### 🔒 Trang Quên Mật Khẩu
-<!-- 📸 DÁN ẢNH TRANG QUÊN MẬT KHẨU (http://localhost:5173/forgot-password) VÀO ĐÂY -->
-![Quên mật khẩu](./screenshots/forgot-password.png)
+<img width="1873" height="985" alt="{AEB91B72-D3A6-474E-BA1F-70B922ADECF9}" src="https://github.com/user-attachments/assets/2218521d-f052-4ac2-a580-99177a5c058d" />
 
 ---
 
 ### 📧 Email Reset Mật Khẩu
-<!-- 📸 DÁN ẢNH EMAIL NHẬN ĐƯỢC TRONG HỘP THƯ VÀO ĐÂY -->
-![Email reset](./screenshots/reset-email.png)
+<img width="1871" height="1033" alt="{D6CD7A46-C053-427F-8748-5FD91E18D772}" src="https://github.com/user-attachments/assets/6aad3f3f-cf7c-4f5c-906a-ea4b6391d1f0" />
 
 ---
-
-### 🖥 Backend API Test (Postman / Terminal)
-<!-- 📸 DÁN ẢNH TEST API (POSTMAN HOẶC KẾT QUẢ TERMINAL) VÀO ĐÂY -->
-![API Test](./screenshots/api-test.png)
+<img width="1802" height="991" alt="{F9D9C53F-4032-49D6-835C-5D295E3E25AE}" src="https://github.com/user-attachments/assets/791e8d7d-9002-4fe8-a6d0-e93034041667" />
 
 ---
+<img width="1872" height="1025" alt="{E2942BF3-18F9-4EAC-8B7C-A84B26469F45}" src="https://github.com/user-attachments/assets/d81c8167-e9d5-400f-b690-3724d9491899" />
 
+---
+<img width="1511" height="804" alt="{4C35E388-748C-4670-B6C7-18B54860BA14}" src="https://github.com/user-attachments/assets/8a1470c1-8e1b-4d7e-9e0d-ef523c4aa20d" />
+
+---
 ## 🔑 Luồng Hoạt Động
 
 ```
