@@ -338,7 +338,6 @@ Base URL: `http://localhost:8080`
 | **MSSV** | 23110193 |
 | **Môn học** | Công Nghệ Phần Mềm Mã Nguồn Mở |
 | **Bài tập** | BT03 — FullStack Node.js + React.js |
-| **Năm học** | 2024 – 2025 |
 
 </div>
 
