@@ -24,8 +24,6 @@
 | BT01 | Quản lý User — CRUD với EJS | Express.js · MongoDB · EJS · Bootstrap | [📁 Xem thư mục](./BT01_23110193_DinhNguyenDucDuy/) |
 | BT02 | Edit Profile — Authentication & Authorization | Express.js · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT02_EditProfile_23110193_DinhNguyenDucDuy/) |
 | BT03 | FullStack — Node.js + React.js | Express.js · MongoDB · React · Ant Design · JWT | [📁 Xem thư mục](./BT03_23110193_DinhNguyenDucDuy/) |
-| BT04 | *(Chưa có — thêm vào sau)* | — | — |
-| BT05 | *(Chưa có — thêm vào sau)* | — | — |
 
 ---
 
