@@ -1,0 +1,201 @@
+# 📚 CNPMM — Các Công Nghệ Phần Mềm Mới
+
+<div align="center">
+
+**Tổng hợp bài tập môn học — Công Nghệ Phần Mềm Mã Nguồn Mở**
+
+| 👤 Sinh viên | 🎓 MSSV | 🏫 Lớp |
+|:---:|:---:|:---:|
+| **Đinh Nguyễn Đức Duy** | **23110193** | Nhóm 02 — Tiết 2-4 — Phòng A308 |
+
+[![GitHub](https://img.shields.io/badge/GitHub-ShiroKin7448-181717?style=for-the-badge&logo=github)](https://github.com/ShiroKin7448/CNPMM)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+
+</div>
+
+---
+
+## 📂 Danh Sách Bài Tập
+
+| # | Tên bài | Công nghệ chính | Link |
+|:-:|---------|----------------|------|
+| BT01 | Quản lý User — CRUD với EJS | Express.js · MongoDB · EJS · Bootstrap | [📁 Xem thư mục](./BT01_23110193_DinhNguyenDucDuy/) |
+| BT02 | Edit Profile — Authentication & Authorization | Express.js · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT02_EditProfile_23110193_DinhNguyenDucDuy/) |
+| BT03 | FullStack — Node.js + React.js | Express.js · MongoDB · React · Ant Design · JWT | [📁 Xem thư mục](./BT03_23110193_DinhNguyenDucDuy/) |
+| BT04 | *(Chưa có — thêm vào sau)* | — | — |
+| BT05 | *(Chưa có — thêm vào sau)* | — | — |
+
+---
+
+## 📖 Chi Tiết Từng Bài
+
+---
+
+### 🟢 BT01 — Quản Lý Người Dùng CRUD
+
+> **Thư mục:** [`BT01_23110193_DinhNguyenDucDuy/`](./BT01_23110193_DinhNguyenDucDuy/)
+
+Xây dựng hệ thống quản lý người dùng cơ bản theo mô hình **MVC**, render giao diện phía server bằng EJS.
+
+**Chức năng:**
+- ✅ **Create** — Thêm mới người dùng
+- ✅ **Read** — Hiển thị danh sách từ MongoDB
+- ✅ **Update** — Cập nhật thông tin
+- ✅ **Delete** — Xóa người dùng
+
+**Tech Stack:**
+
+![Express](https://img.shields.io/badge/Express.js-000?style=flat-square&logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![EJS](https://img.shields.io/badge/EJS-Template-B4CA65?style=flat-square)
+![Bootstrap](https://img.shields.io/badge/Bootstrap_5-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
+
+**Cách chạy:**
+```bash
+cd BT01_23110193_DinhNguyenDucDuy
+npm install
+npm start
+# Truy cập: http://localhost:8088/crud
+```
+
+---
+
+### 🟡 BT02 — Edit Profile (Auth & Authorization)
+
+> **Thư mục:** [`BT02_EditProfile_23110193_DinhNguyenDucDuy/`](./BT02_EditProfile_23110193_DinhNguyenDucDuy/)
+
+Xây dựng hệ thống xác thực người dùng đầy đủ với bảo vệ route, refresh token và gửi email.
+
+**Chức năng:**
+- ✅ Đăng ký / Đăng nhập với JWT
+- ✅ Cập nhật thông tin cá nhân (Edit Profile)
+- ✅ Rate limiting chống brute-force (`express-rate-limit`)
+- ✅ Validate input với `express-validator`
+- ✅ Gửi email qua Nodemailer
+- ✅ Mã hóa mật khẩu bằng `bcryptjs`
+
+**Tech Stack:**
+
+![Express](https://img.shields.io/badge/Express.js-000?style=flat-square&logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens)
+![Nodemailer](https://img.shields.io/badge/Nodemailer-22B573?style=flat-square)
+
+**Cách chạy:**
+```bash
+cd BT02_EditProfile_23110193_DinhNguyenDucDuy/EditProfile
+npm install
+# Cấu hình .env (PORT, MONGO_DB_URL, JWT_SECRET, EMAIL_*)
+npm start
+```
+
+---
+
+### 🔵 BT03 — FullStack Node.js + React.js
+
+> **Thư mục:** [`BT03_23110193_DinhNguyenDucDuy/`](./BT03_23110193_DinhNguyenDucDuy/)
+> **README chi tiết:** [📄 Xem tại đây](./BT03_23110193_DinhNguyenDucDuy/README.md)
+
+Ứng dụng FullStack hoàn chỉnh với **REST API** (Express) và **SPA** (React + Ant Design), giao tiếp qua Axios với JWT Authentication.
+
+**Chức năng:**
+- ✅ Register / Login với JWT + bcrypt
+- ✅ Danh sách User (bảng có search, filter, sort)
+- ✅ Forgot Password → gửi email reset link (15 phút)
+- ✅ Reset Password → đặt mật khẩu mới qua token
+- ✅ Duy trì session khi F5 trang
+- ✅ Dark theme hiện đại với glassmorphism
+
+**Tech Stack:**
+
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Ant Design](https://img.shields.io/badge/Ant_Design-0170FE?style=flat-square&logo=antdesign&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000?style=flat-square&logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens)
+
+**Cách chạy:**
+```bash
+# Terminal 1 — Backend
+cd BT03_23110193_DinhNguyenDucDuy/ExpressJS01
+npm install
+npm run dev        # http://localhost:8080
+
+# Terminal 2 — Frontend
+cd BT03_23110193_DinhNguyenDucDuy/ReactJS01
+npm install
+npm run dev        # http://localhost:5173
+```
+
+---
+
+<!--
+=======================================================
+  HƯỚNG DẪN THÊM BÀI TẬP MỚI (đọc kỹ trước khi thêm)
+=======================================================
+
+1. Tạo thư mục với đúng format tên:
+   BT[số]_23110193_DinhNguyenDucDuy
+
+2. Thêm 1 dòng vào bảng "Danh Sách Bài Tập" ở trên:
+   | BT0X | Tên bài | Tech Stack | [📁 Xem thư mục](./BT0X_.../) |
+
+3. Copy khối template dưới đây và điền thông tin:
+
+---
+
+### 🟣 BT0X — Tên Bài Tập
+
+> **Thư mục:** [`BT0X_23110193_DinhNguyenDucDuy/`](./BT0X_23110193_DinhNguyenDucDuy/)
+
+Mô tả ngắn về bài tập này.
+
+**Chức năng:**
+- ✅ Chức năng 1
+- ✅ Chức năng 2
+
+**Tech Stack:**
+![...badge...]
+
+**Cách chạy:**
+```bash
+cd BT0X_...
+npm install
+npm start
+```
+
+=======================================================
+-->
+
+---
+
+## 🛠 Yêu Cầu Hệ Thống
+
+Tất cả bài tập trong repo này yêu cầu:
+
+| Công cụ | Phiên bản tối thiểu | Tải về |
+|---------|-------------------|--------|
+| Node.js | >= 18.x | [nodejs.org](https://nodejs.org/) |
+| MongoDB | >= 6.x | [mongodb.com](https://www.mongodb.com/try/download/community) |
+| npm | >= 9.x | Đi kèm Node.js |
+| Git | Bất kỳ | [git-scm.com](https://git-scm.com/) |
+
+---
+
+## 📌 Ghi Chú Chung
+
+- Mỗi bài tập có file `.env` riêng — **không được commit** file này lên GitHub (đã có trong `.gitignore`)
+- Thư mục `node_modules/` không được push lên — sau khi clone về chạy `npm install` để cài lại
+- Với các bài có chức năng gửi email, cần cấu hình Gmail App Password (xem hướng dẫn trong README của từng bài)
+
+---
+
+<div align="center">
+
+*Repo được duy trì bởi **Đinh Nguyễn Đức Duy** — MSSV 23110193*
+*Môn: Các Công Nghệ Phần Mềm Mới — 2024–2025*
+
+</div>
