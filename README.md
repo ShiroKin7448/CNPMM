@@ -185,12 +185,6 @@ Tất cả bài tập trong repo này yêu cầu:
 
 ## 📌 Ghi Chú Chung
 
-- Mỗi bài tập có file `.env` riêng — **không được commit** file này lên GitHub (đã có trong `.gitignore`)
-- Thư mục `node_modules/` không được push lên — sau khi clone về chạy `npm install` để cài lại
-- Với các bài có chức năng gửi email, cần cấu hình Gmail App Password (xem hướng dẫn trong README của từng bài)
-
----
-
 <div align="center">
 
 *Repo được duy trì bởi **Đinh Nguyễn Đức Duy** — MSSV 23110193*
