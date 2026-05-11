@@ -12,6 +12,7 @@ import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import UserPage from "./pages/user.jsx";
 import ForgotPassword from "./pages/forgot-password.jsx";
+import ResetPassword from "./pages/reset-password.jsx";
 import { AuthWrapper } from "./components/context/auth.context.jsx";
 
 // Cấu hình React Router
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "forgot-password",
         element: <ForgotPassword />,
+      },
+      {
+        path: "reset-password/:token",
+        element: <ResetPassword />,
       },
     ],
   },

@@ -266,10 +266,60 @@ const forgotPasswordService = async (email) => {
   }
 };
 
+// =====================
+// Service: Reset Password (xác nhận token từ email)
+// =====================
+const resetPasswordService = async (token, newPassword) => {
+  try {
+    // Hash lại token nhận từ URL để so sánh với DB
+    const hashedToken = crypto
+      .createHash("sha256")
+      .update(token)
+      .digest("hex");
+
+    // Tìm user có token hợp lệ và chưa hết hạn
+    const user = await User.findOne({
+      resetPasswordToken: hashedToken,
+      resetPasswordExpires: { $gt: Date.now() }, // Token còn hạn
+    });
+
+    if (!user) {
+      return {
+        EC: 1,
+        EM: "Link đặt lại mật khẩu không hợp lệ hoặc đã hết hạn (15 phút)",
+        DT: null,
+      };
+    }
+
+    // Hash mật khẩu mới
+    const hashedPassword = await bcrypt.hash(newPassword, SALT_ROUNDS);
+
+    // Cập nhật mật khẩu và xóa token
+    user.password = hashedPassword;
+    user.resetPasswordToken = null;
+    user.resetPasswordExpires = null;
+    await user.save();
+
+    return {
+      EC: 0,
+      EM: "Đặt lại mật khẩu thành công! Vui lòng đăng nhập.",
+      DT: { email: user.email },
+    };
+  } catch (error) {
+    console.error("resetPasswordService error:", error);
+    return {
+      EC: -1,
+      EM: "Lỗi server khi đặt lại mật khẩu",
+      DT: null,
+    };
+  }
+};
+
 export {
   createUserService,
   loginService,
   getUserService,
   getAccountService,
   forgotPasswordService,
+  resetPasswordService,
 };

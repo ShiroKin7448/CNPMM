@@ -6,6 +6,7 @@ import {
   getUser,
   getAccount,
   forgotPassword,
+  resetPassword,
 } from "../controllers/userController.js";
 
 const router = express.Router();
@@ -22,6 +23,9 @@ router.post("/login", handleLogin);
 
 // POST /v1/api/forgot-password - Quên mật khẩu
 router.post("/forgot-password", forgotPassword);
+
+// POST /v1/api/reset-password/:token - Đặt lại mật khẩu bằng token từ email
+router.post("/reset-password/:token", resetPassword);
 
 // =====================
 // Protected Routes (cần auth - Bearer Token)

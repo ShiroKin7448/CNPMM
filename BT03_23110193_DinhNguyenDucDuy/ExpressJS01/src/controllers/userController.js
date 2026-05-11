@@ -4,6 +4,7 @@ import {
   getUserService,
   getAccountService,
   forgotPasswordService,
+  resetPasswordService,
 } from "../services/userService.js";
 
 // =====================
@@ -136,4 +137,41 @@ const forgotPassword = async (req, res) => {
   }
 };
 
-export { createUser, handleLogin, getUser, getAccount, forgotPassword };
+// =====================
+// POST /v1/api/reset-password/:token
+// =====================
+const resetPassword = async (req, res) => {
+  try {
+    const { token } = req.params;
+    const { password } = req.body;
+
+    if (!token) {
+      return res.status(400).json({
+        EC: 1,
+        EM: "Token không hợp lệ",
+        DT: null,
+      });
+    }
+
+    if (!password || password.length < 6) {
+      return res.status(400).json({
+        EC: 1,
+        EM: "Mật khẩu phải có ít nhất 6 ký tự",
+        DT: null,
+      });
+    }
+
+    const result = await resetPasswordService(token, password);
+    const statusCode = result.EC === 0 ? 200 : 400;
+    return res.status(statusCode).json(result);
+  } catch (error) {
+    console.error("resetPassword controller error:", error);
+    return res.status(500).json({
+      EC: -1,
+      EM: "Lỗi server",
+      DT: null,
+    });
+  }
+};
+
+export { createUser, handleLogin, getUser, getAccount, forgotPassword, resetPassword };

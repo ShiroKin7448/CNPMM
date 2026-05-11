@@ -11,6 +11,11 @@ const checkAuth = (req, res, next) => {
     return next();
   }
 
+  // Bỏ qua auth cho reset-password (có token động trong URL)
+  if (req.path.startsWith("/v1/api/reset-password/")) {
+    return next();
+  }
+
   // Lấy token từ header Authorization: Bearer <token>
   const authHeader = req.headers["authorization"];
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
