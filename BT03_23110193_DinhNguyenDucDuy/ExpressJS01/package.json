@@ -1,0 +1,31 @@
+{
+  "name": "expressjs01",
+  "version": "1.0.0",
+  "description": "Backend for BT03 - FullStack project with Express.js and MongoDB",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --exec babel-node ./src/server.js",
+    "start": "nodemon --exec babel-node ./src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "DinhNguyenDucDuy - 23110193",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.2",
+    "nodemailer": "^6.10.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/node": "^7.29.0",
+    "@babel/preset-env": "^7.29.5",
+    "nodemon": "^3.1.14"
+  }
+}
