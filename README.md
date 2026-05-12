@@ -188,6 +188,6 @@ Tất cả bài tập trong repo này yêu cầu:
 <div align="center">
 
 *Repo được duy trì bởi **Đinh Nguyễn Đức Duy** — MSSV 23110193*
-*Môn: Các Công Nghệ Phần Mềm Mới — 2024–2025*
+*Môn: Các Công Nghệ Phần Mềm Mới*
 
 </div>
