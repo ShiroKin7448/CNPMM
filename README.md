@@ -24,7 +24,7 @@
 | BT01 | Quản lý User — CRUD với EJS | Express.js · MongoDB · EJS · Bootstrap | [📁 Xem thư mục](./BT01_23110193_DinhNguyenDucDuy/) |
 | BT02 | Edit Profile — Authentication & Authorization | Express.js · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT02_EditProfile_23110193_DinhNguyenDucDuy/) |
 | BT03 | FullStack — Node.js + React.js | Express.js · MongoDB · React · Ant Design · JWT | [📁 Xem thư mục](./BT03_23110193_DinhNguyenDucDuy/) |
-| BT04 | Redux + Page Wiring — Dự án nhóm | React · Redux Toolkit · Axios · TailwindCSS | [📁 Xem thư mục](./BT04_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/) |
+| BT03(NHOM) | Redux + Page Wiring — Dự án nhóm | React · Redux Toolkit · Axios · TailwindCSS | [📁 Xem thư mục](./BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/) |
 
 ---
 
@@ -171,10 +171,10 @@ npm start
 
 ---
 
-### 🟣 BT04 — Redux + Page Wiring (Dự Án Nhóm)
+### 🟣 BT03(NHOM) — Redux + Page Wiring (Dự Án Nhóm)
 
-> **Thư mục:** [`BT04_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/`](./BT04_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/)
-> **README chi tiết:** [📄 Xem tại đây](./BT04_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/README.md)
+> **Thư mục:** [`BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/`](./BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/)
+> **README chi tiết:** [📄 Xem tại đây](./BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/README.md)
 
 Phần đóng góp của Đinh Nguyễn Đức Duy trong dự án nhóm **hcmute-student-consulting** — hệ thống tư vấn sinh viên HCMUTE. Đảm nhận vai trò quản lý **Redux state** và xây dựng **ProfilePage**.
 
