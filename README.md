@@ -24,6 +24,7 @@
 | BT01 | Quản lý User — CRUD với EJS | Express.js · MongoDB · EJS · Bootstrap | [📁 Xem thư mục](./BT01_23110193_DinhNguyenDucDuy/) |
 | BT02 | Edit Profile — Authentication & Authorization | Express.js · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT02_EditProfile_23110193_DinhNguyenDucDuy/) |
 | BT03 | FullStack — Node.js + React.js | Express.js · MongoDB · React · Ant Design · JWT | [📁 Xem thư mục](./BT03_23110193_DinhNguyenDucDuy/) |
+| BT04 | Redux + Page Wiring — Dự án nhóm | React · Redux Toolkit · Axios · TailwindCSS | [📁 Xem thư mục](./BT04_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/) |
 
 ---
 
@@ -167,6 +168,31 @@ npm start
 
 =======================================================
 -->
+
+---
+
+### 🟣 BT04 — Redux + Page Wiring (Dự Án Nhóm)
+
+> **Thư mục:** [`BT04_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/`](./BT04_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/)
+> **README chi tiết:** [📄 Xem tại đây](./BT04_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/README.md)
+
+Phần đóng góp của Đinh Nguyễn Đức Duy trong dự án nhóm **hcmute-student-consulting** — hệ thống tư vấn sinh viên HCMUTE. Đảm nhận vai trò quản lý **Redux state** và xây dựng **ProfilePage**.
+
+**Chức năng:**
+- ✅ Redux store với `@reduxjs/toolkit`
+- ✅ `authSlice.js` — đầy đủ actions cho Register, Login, OTP, Forgot/Reset Password, Profile
+- ✅ `hooks.js` — `useAuth()` hook kết nối Redux + Axios API
+- ✅ `selectors.js` — selectors truy cập auth state
+- ✅ `ProfilePage.jsx` — xem/chỉnh sửa hồ sơ, validation, logout
+
+**Tech Stack:**
+
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+
+**Link repo nhóm:** [DangTranAnhQuan/hcmute-student-consulting](https://github.com/DangTranAnhQuan/hcmute-student-consulting) — nhánh `feature/edit-profile`
 
 ---
 
