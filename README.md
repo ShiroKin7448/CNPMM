@@ -25,6 +25,7 @@
 | BT02 | Edit Profile — Authentication & Authorization | Express.js · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT02_EditProfile_23110193_DinhNguyenDucDuy/) |
 | BT03 | FullStack — Node.js + React.js | Express.js · MongoDB · React · Ant Design · JWT | [📁 Xem thư mục](./BT03_23110193_DinhNguyenDucDuy/) |
 | BT03(NHOM) | Redux + Page Wiring — Dự án nhóm | React · Redux Toolkit · Axios · TailwindCSS | [📁 Xem thư mục](./BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/) |
+| BT04 | **E-Commerce — Laptop Store (API + UI)** | React · **TailwindCSS** · **Swiper** · Express · MongoDB | [📁 Xem thư mục](./BT04_23110193_DinhNguyenDucDuy/) |
 
 ---
 
@@ -193,6 +194,45 @@ Phần đóng góp của Đinh Nguyễn Đức Duy trong dự án nhóm **hcmute
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 
 **Link repo nhóm:** [DangTranAnhQuan/hcmute-student-consulting](https://github.com/DangTranAnhQuan/hcmute-student-consulting) — nhánh `feature/edit-profile`
+
+---
+
+### 🛒 BT04 — E-Commerce Laptop Store (API + UI Cá Nhân)
+
+> **Thư mục:** [`BT04_23110193_DinhNguyenDucDuy/`](./BT04_23110193_DinhNguyenDucDuy/)
+> **README chi tiết:** [📄 Xem tại đây](./BT04_23110193_DinhNguyenDucDuy/README.md)
+
+Bài tập cá nhân **API + UI** — Cửa hàng **Laptop & Phụ Kiện** FullStack với TailwindCSS. Giao diện sáng, sinh động, hiện đại.
+
+**Chức năng mới (tiếp nối BT03):**
+- ✅ **Trang chủ bán hàng** — Hero banner, section Giảm Giá / Bán Chạy / Mới Nhất / Nổi Bật
+- ✅ **Trang Shop** — Tìm kiếm realtime, filter (danh mục, hãng, giá, tag), sort, pagination
+- ✅ **Chi tiết sản phẩm** — Swiper ảnh + thumbnail, tồn kho, số bán, tăng/giảm số lượng, sản phẩm tương tự
+- ✅ **Profile Page** — Xem thông tin + đổi mật khẩu
+- ✅ **CRUD User** — Admin sửa/xóa người dùng
+- ✅ 8 Product API mới (search, filter, sort, pagination, similar...)
+
+**Tech Stack:**
+
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS_v3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Swiper](https://img.shields.io/badge/Swiper.js-6332F6?style=flat-square)
+![Express](https://img.shields.io/badge/Express.js-000?style=flat-square&logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+
+**Cách chạy:**
+```bash
+# Backend
+cd BT04_23110193_DinhNguyenDucDuy/ExpressJS01
+npm install
+npm run seed   # Seed 20 sản phẩm laptop
+npm run dev    # http://localhost:8080
+
+# Frontend
+cd ../ReactJS01
+npm install
+npm run dev    # http://localhost:5173
+```
 
 ---
 
