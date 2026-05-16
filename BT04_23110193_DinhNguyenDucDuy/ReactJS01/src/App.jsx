@@ -49,10 +49,10 @@ const App = () => {
   if (appLoading) {
     return (
       <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f8fafc", flexDirection: "column", gap: "16px" }}>
-        <div style={{ width: "60px", height: "60px", background: "linear-gradient(135deg, #4F46E5, #8b5cf6)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px", boxShadow: "0 8px 24px rgba(79,70,229,0.3)" }}>
+        <div style={{ width: "60px", height: "60px", background: "#000000", color: "#C0FF6B", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px", boxShadow: "0 8px 24px rgba(0,0,0,0.24)" }}>
           💻
         </div>
-        <div style={{ width: "40px", height: "40px", border: "3px solid #4F46E5", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+        <div style={{ width: "40px", height: "40px", border: "3px solid #000000", borderTopColor: "#C0FF6B", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
         <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: 500 }}>Đang tải LaptopStore...</span>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>

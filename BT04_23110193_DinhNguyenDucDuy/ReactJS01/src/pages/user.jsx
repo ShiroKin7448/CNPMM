@@ -46,7 +46,7 @@ const UserPage = () => {
       title: "Người dùng", key: "user",
       render: (_, r) => (
         <Space>
-          <Avatar style={{ background: r.role === "admin" ? "linear-gradient(135deg,#f59e0b,#ef4444)" : "linear-gradient(135deg,#6366f1,#8b5cf6)", fontWeight: 700 }}>
+          <Avatar style={{ background: r.role === "admin" ? "#000000" : "#656565", color: r.role === "admin" ? "#C0FF6B" : "#ffffff", fontWeight: 700 }}>
             {r.name?.charAt(0)?.toUpperCase()}
           </Avatar>
           <div>
@@ -61,7 +61,7 @@ const UserPage = () => {
       title: "Vai trò", dataIndex: "role", key: "role", width: 120,
       render: role => (
         <Tag icon={role === "admin" ? <CrownOutlined /> : <UserOutlined />}
-          style={{ background: role === "admin" ? "rgba(245,158,11,0.1)" : "rgba(79,70,229,0.1)", border: `1px solid ${role === "admin" ? "rgba(245,158,11,0.3)" : "rgba(79,70,229,0.3)"}`, color: role === "admin" ? "#b45309" : "#4F46E5", borderRadius: 6, fontWeight: 600 }}>
+          style={{ background: role === "admin" ? "rgba(192,255,107,0.22)" : "rgba(213,213,213,0.45)", border: "1px solid #D5D5D5", color: "#000000", borderRadius: 6, fontWeight: 600 }}>
           {role === "admin" ? "Admin" : "User"}
         </Tag>
       ),
@@ -79,7 +79,7 @@ const UserPage = () => {
         <Space>
           <Tooltip title="Chỉnh sửa">
             <Button size="small" icon={<EditOutlined />} onClick={() => setEditUser(r)}
-              style={{ borderColor: "#4F46E5", color: "#4F46E5" }} />
+              style={{ borderColor: "#656565", color: "#000000" }} />
           </Tooltip>
           <Popconfirm
             title="Xóa người dùng?"
@@ -99,12 +99,12 @@ const UserPage = () => {
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 24, flexWrap: "wrap", gap: 16 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div style={{ width: 44, height: 44, background: "linear-gradient(135deg,#4F46E5,#8b5cf6)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 44, height: 44, background: "#000000", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <TeamOutlined style={{ fontSize: 20, color: "#fff" }} />
             </div>
             <div>
               <Title level={3} style={{ margin: 0, color: "#1e293b", fontWeight: 700 }}>Quản lý User</Title>
-              <Text style={{ color: "#94a3b8", fontSize: 14 }}>Tổng: <strong style={{ color: "#4F46E5" }}>{filtered.length}</strong> người dùng</Text>
+              <Text style={{ color: "#656565", fontSize: 14 }}>Tổng: <strong style={{ color: "#000000" }}>{filtered.length}</strong> người dùng</Text>
             </div>
           </div>
           <Space>
@@ -113,7 +113,7 @@ const UserPage = () => {
               value={searchText} onChange={e => setSearchText(e.target.value)}
               style={{ width: 280, borderRadius: 10 }} allowClear />
             <Button id="refresh-users-btn" icon={<ReloadOutlined />} onClick={fetchUsers} loading={loading}
-              style={{ borderRadius: 10, borderColor: "#4F46E5", color: "#4F46E5" }}>Làm mới</Button>
+              style={{ borderRadius: 10, borderColor: "#656565", color: "#000000" }}>Làm mới</Button>
           </Space>
         </div>
 

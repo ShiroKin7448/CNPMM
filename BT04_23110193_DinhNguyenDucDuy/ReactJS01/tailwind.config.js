@@ -7,10 +7,10 @@ export default {
         sans: ["'Inter'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       colors: {
-        primary: { DEFAULT: "#4F46E5", light: "#818CF8", dark: "#3730A3" },
-        accent: { DEFAULT: "#F97316", light: "#FB923C" },
-        success: "#10B981",
-        danger: "#EF4444",
+        primary: { DEFAULT: "#000000", light: "#656565", dark: "#000000" },
+        accent: { DEFAULT: "#C0FF6B", light: "#C0FF6B" },
+        success: "#656565",
+        danger: "#000000",
       },
       animation: {
         "fade-up": "fadeUp 0.5s ease forwards",

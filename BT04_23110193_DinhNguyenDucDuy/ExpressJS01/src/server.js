@@ -10,6 +10,11 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+const defaultAllowedOrigins = ["http://localhost:5173", "http://127.0.0.1:5173"];
+const allowedOrigins = Array.from(new Set([
+  ...defaultAllowedOrigins,
+  ...(process.env.FRONTEND_URL || "").split(","),
+].map((origin) => origin.trim()).filter(Boolean)));
 
 // =====================
 // Middleware
@@ -17,7 +22,10 @@ const PORT = process.env.PORT || 8080;
 
 // CORS - cho phép frontend gọi API
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error(`CORS blocked: ${origin}`));
+  },
   credentials: true,
 }));
 

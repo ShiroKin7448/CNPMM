@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { FiShoppingCart, FiHeart } from "react-icons/fi";
+import { FiCpu, FiHardDrive, FiHeart, FiShoppingBag } from "react-icons/fi";
 import { HiStar } from "react-icons/hi";
 
-const formatPrice = (n) => new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(n);
+const formatPrice = (n) =>
+  new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(n);
 
 const BADGE_MAP = {
-  "new": { label: "Mới", color: "bg-emerald-500" },
-  "best-seller": { label: "Bán Chạy", color: "bg-orange-500" },
-  "sale": { label: "Giảm Giá", color: "bg-red-500" },
-  "featured": { label: "Nổi Bật", color: "bg-indigo-600" },
+  new: { label: "Mới", style: { background: "#C0FF6B", color: "#000000" } },
+  "best-seller": { label: "Bán chạy", style: { background: "#000000", color: "#C0FF6B" } },
+  sale: { label: "Giảm giá", style: { background: "#656565", color: "#ffffff" } },
+  featured: { label: "Nổi bật", style: { background: "#D5D5D5", color: "#000000" } },
 };
 
 const ProductCard = ({ product }) => {
@@ -17,98 +18,144 @@ const ProductCard = ({ product }) => {
   const discountPct = product.salePrice
     ? Math.round((1 - product.salePrice / product.price) * 100)
     : 0;
-
   const primaryBadge = product.tags?.[0];
+  const categoryColor = product.category?.color || "#656565";
+  const categoryText = categoryColor === "#C0FF6B" ? "#000000" : categoryColor;
+  const categoryBg = categoryColor === "#C0FF6B" ? "rgba(192,255,107,0.28)" : `${categoryColor}18`;
+  const specs = [
+    product.specs?.cpu && { icon: <FiCpu size={12} />, text: product.specs.cpu },
+    product.specs?.storage && { icon: <FiHardDrive size={12} />, text: product.specs.storage },
+  ].filter(Boolean);
+
+  const goToDetail = () => navigate(`/product/${product._id}`);
 
   return (
-    <div
-      onClick={() => navigate(`/product/${product._id}`)}
-      className="group bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-100 cursor-pointer transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col"
+    <article
+      onClick={goToDetail}
+      className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-[26px] border border-[#D5D5D5] bg-white shadow-sm shadow-black/5 transition-all duration-300 hover:-translate-y-1 hover:border-black hover:shadow-2xl hover:shadow-black/18"
     >
-      {/* Image */}
-      <div className="relative overflow-hidden bg-slate-50 aspect-[4/3]">
+      <div className="relative aspect-[4/3] overflow-hidden bg-[#D5D5D5]">
         <img
-          src={product.images?.[0] || "https://via.placeholder.com/400x300?text=No+Image"}
+          src={product.images?.[0] || "https://via.placeholder.com/600x450?text=No+Image"}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
         />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/65 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-        {/* Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1">
-          {primaryBadge && (
-            <span className={`text-white text-xs font-bold px-2.5 py-1 rounded-full ${BADGE_MAP[primaryBadge]?.color}`}>
-              {BADGE_MAP[primaryBadge]?.label}
+        <div className="absolute left-3 top-3 flex flex-col gap-1.5">
+          {primaryBadge && BADGE_MAP[primaryBadge] && (
+            <span
+              className="rounded-full px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wide shadow-lg shadow-black/15"
+              style={BADGE_MAP[primaryBadge].style}
+            >
+              {BADGE_MAP[primaryBadge].label}
             </span>
           )}
           {discountPct > 0 && (
-            <span className="bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">
+            <span className="rounded-full bg-black px-2.5 py-1 text-[11px] font-extrabold text-[#C0FF6B] shadow-lg shadow-black/20">
               -{discountPct}%
             </span>
           )}
         </div>
 
-        {/* Stock status */}
+        <button
+          type="button"
+          onClick={(e) => e.stopPropagation()}
+          className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/90 text-black shadow-lg shadow-black/15 backdrop-blur transition hover:bg-[#C0FF6B]"
+          aria-label="Yêu thích"
+        >
+          <FiHeart size={16} />
+        </button>
+
         {product.stock === 0 && (
-          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <span className="text-white font-bold bg-gray-800/80 px-4 py-2 rounded-full">Hết Hàng</span>
+          <div className="absolute inset-0 flex items-center justify-center bg-black/70">
+            <span className="rounded-full bg-[#C0FF6B] px-4 py-2 text-sm font-extrabold text-black">
+              Hết hàng
+            </span>
           </div>
         )}
-
-        {/* Quick actions */}
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button
-            onClick={(e) => e.stopPropagation()}
-            className="w-9 h-9 bg-white rounded-full shadow flex items-center justify-center text-slate-500 hover:text-red-500 transition-colors"
-          >
-            <FiHeart size={16} />
-          </button>
-        </div>
       </div>
 
-      {/* Content */}
-      <div className="p-4 flex-1 flex flex-col">
-        {/* Category */}
-        {product.category && (
-          <span
-            className="text-xs font-semibold px-2 py-0.5 rounded-full inline-block mb-2 w-fit"
-            style={{ background: product.category.color + "18", color: product.category.color }}
-          >
-            {product.category.icon} {product.category.name}
+      <div className="flex flex-1 flex-col p-4">
+        <div className="mb-3 flex items-center justify-between gap-2">
+          {product.category && (
+            <span
+              className="inline-flex max-w-full items-center gap-1 truncate rounded-full px-2.5 py-1 text-[11px] font-extrabold"
+              style={{ background: categoryBg, color: categoryText }}
+            >
+              <span>{product.category.icon}</span>
+              <span className="truncate">{product.category.name}</span>
+            </span>
+          )}
+          <span className="shrink-0 text-[11px] font-extrabold uppercase tracking-wide text-[#656565]">
+            {product.brand}
           </span>
-        )}
+        </div>
 
-        {/* Name */}
-        <h3 className="text-sm font-semibold text-slate-800 line-clamp-2 mb-2 leading-snug flex-1">
+        <h3 className="line-clamp-2 min-h-[42px] text-sm font-extrabold leading-snug text-black">
           {product.name}
         </h3>
 
-        {/* Rating & Sold */}
-        <div className="flex items-center gap-3 mb-3">
-          <div className="flex items-center gap-1 text-amber-400">
-            <HiStar size={14} />
-            <span className="text-xs text-slate-600 font-medium">{product.rating}</span>
+        {specs.length > 0 && (
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            {specs.map((spec) => (
+              <div
+                key={spec.text}
+                className="flex min-w-0 items-center gap-1.5 rounded-2xl border border-[#D5D5D5] bg-[#f6f6f6] px-2.5 py-2 text-[11px] font-bold text-[#656565]"
+              >
+                <span className="text-black">{spec.icon}</span>
+                <span className="truncate">{spec.text}</span>
+              </div>
+            ))}
           </div>
-          <span className="text-xs text-slate-400">Đã bán: <b className="text-slate-600">{product.sold}</b></span>
-        </div>
+        )}
 
-        {/* Price */}
-        <div className="flex items-baseline gap-2">
-          <span className="text-base font-bold text-indigo-600">{formatPrice(activePrice)}</span>
-          {product.salePrice && (
-            <span className="text-xs text-slate-400 line-through">{formatPrice(product.price)}</span>
-          )}
-        </div>
-
-        {/* Stock */}
-        <div className="mt-2 flex items-center gap-1">
-          <div className={`w-2 h-2 rounded-full ${product.stock > 0 ? "bg-emerald-400" : "bg-red-400"}`} />
-          <span className={`text-xs ${product.stock > 0 ? "text-emerald-600" : "text-red-500"}`}>
-            {product.stock > 0 ? `Còn ${product.stock} sản phẩm` : "Hết hàng"}
+        <div className="mt-3 flex items-center gap-3">
+          <div className="flex items-center gap-1 rounded-full bg-black px-2 py-1 text-[#C0FF6B]">
+            <HiStar size={14} />
+            <span className="text-[11px] font-extrabold">{product.rating}</span>
+          </div>
+          <span className="text-xs font-semibold text-[#656565]">
+            Đã bán <b className="text-black">{product.sold}</b>
           </span>
         </div>
+
+        <div className="mt-auto pt-4">
+          <div className="flex flex-wrap items-baseline gap-2">
+            <span className="text-lg font-extrabold text-black">{formatPrice(activePrice)}</span>
+            {product.salePrice && (
+              <span className="text-xs font-semibold text-[#656565] line-through">
+                {formatPrice(product.price)}
+              </span>
+            )}
+          </div>
+
+          <div className="mt-3 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-1.5">
+              <span
+                className="h-2.5 w-2.5 rounded-full"
+                style={{ background: product.stock > 0 ? "#C0FF6B" : "#000000" }}
+              />
+              <span className="text-xs font-bold text-[#656565]">
+                {product.stock > 0 ? `Còn ${product.stock}` : "Hết hàng"}
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                goToDetail();
+              }}
+              className="inline-flex items-center gap-1.5 rounded-full bg-black px-3 py-2 text-xs font-extrabold text-[#C0FF6B] transition hover:bg-[#C0FF6B] hover:text-black"
+            >
+              <FiShoppingBag size={13} />
+              Xem
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </article>
   );
 };
 

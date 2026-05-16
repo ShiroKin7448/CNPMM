@@ -26,14 +26,11 @@ const userSchema = new mongoose.Schema(
       default: "user",
     },
     // Fields for Forgot Password functionality
-    resetPasswordToken: {
-      type: String,
-      default: null,
-    },
-    resetPasswordExpires: {
-      type: Date,
-      default: null,
-    },
+    resetPasswordToken: { type: String, default: null },
+    resetPasswordExpires: { type: Date, default: null },
+    // Email Verification
+    isVerified: { type: Boolean, default: false },
+    verificationToken: { type: String, default: null },
   },
   {
     timestamps: true, // tự động tạo createdAt và updatedAt

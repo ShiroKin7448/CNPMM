@@ -25,7 +25,7 @@
 | BT02 | Edit Profile — Authentication & Authorization | Express.js · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT02_EditProfile_23110193_DinhNguyenDucDuy/) |
 | BT03 | FullStack — Node.js + React.js | Express.js · MongoDB · React · Ant Design · JWT | [📁 Xem thư mục](./BT03_23110193_DinhNguyenDucDuy/) |
 | BT03(NHOM) | Redux + Page Wiring — Dự án nhóm | React · Redux Toolkit · Axios · TailwindCSS | [📁 Xem thư mục](./BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/) |
-| BT04 | **E-Commerce — Laptop Store (API + UI)** | React · **TailwindCSS** · **Swiper** · Express · MongoDB | [📁 Xem thư mục](./BT04_23110193_DinhNguyenDucDuy/) |
+| BT04 | **E-Commerce — LaptopStore FullStack** | React · Vite · TailwindCSS · Express · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT04_23110193_DinhNguyenDucDuy/) |
 
 ---
 
@@ -197,35 +197,43 @@ Phần đóng góp của Đinh Nguyễn Đức Duy trong dự án nhóm **hcmute
 
 ---
 
-### 🛒 BT04 — E-Commerce Laptop Store (API + UI Cá Nhân)
+### 🛒 BT04 — E-Commerce LaptopStore FullStack
 
 > **Thư mục:** [`BT04_23110193_DinhNguyenDucDuy/`](./BT04_23110193_DinhNguyenDucDuy/)
 > **README chi tiết:** [📄 Xem tại đây](./BT04_23110193_DinhNguyenDucDuy/README.md)
 
-Bài tập cá nhân **API + UI** — Cửa hàng **Laptop & Phụ Kiện** FullStack với TailwindCSS. Giao diện sáng, sinh động, hiện đại.
+Bài tập cá nhân **API + UI** — cửa hàng **Laptop & Phụ Kiện** fullstack với React/Vite, TailwindCSS, Express và MongoDB. Giao diện đã được đổi sang bộ màu `#000000`, `#656565`, `#D5D5D5`, `#C0FF6B`, có ảnh sản phẩm riêng và màn hình auth đặt giữa nền ảnh.
 
-**Chức năng mới (tiếp nối BT03):**
-- ✅ **Trang chủ bán hàng** — Hero banner, section Giảm Giá / Bán Chạy / Mới Nhất / Nổi Bật
-- ✅ **Trang Shop** — Tìm kiếm realtime, filter (danh mục, hãng, giá, tag), sort, pagination
-- ✅ **Chi tiết sản phẩm** — Swiper ảnh + thumbnail, tồn kho, số bán, tăng/giảm số lượng, sản phẩm tương tự
-- ✅ **Profile Page** — Xem thông tin + đổi mật khẩu
-- ✅ **CRUD User** — Admin sửa/xóa người dùng
-- ✅ 8 Product API mới (search, filter, sort, pagination, similar...)
+**Chức năng nổi bật:**
+- ✅ **Auth đầy đủ** — đăng ký, đăng nhập, xác nhận email, gửi lại xác nhận, quên mật khẩu, đặt lại mật khẩu
+- ✅ **Trang Shop** — search debounce, filter danh mục/tag/hãng/khoảng giá, sort, pagination, đồng bộ query string
+- ✅ **Sản phẩm** — nhiều ảnh demo khác nhau, card có badge, giá sale, rating, tồn kho, sản phẩm tương tự
+- ✅ **Trang chủ** — hero banner, danh mục và các section Giảm Giá / Bán Chạy / Mới Nhất / Nổi Bật
+- ✅ **User/Profile** — quản lý user, sửa/xóa user, đổi mật khẩu
+- ✅ **Backend API** — xử lý filter rỗng đúng, không còn lỗi `maxPrice=""` thành `0`, search escape regex an toàn hơn
+
+**Demo nhanh:**
+
+| Auth | Shop/filter |
+|---|---|
+| ![BT04 login](./BT04_23110193_DinhNguyenDucDuy/docs/demo/login.png) | ![BT04 shop filter](./BT04_23110193_DinhNguyenDucDuy/docs/demo/shop-filter.png) |
 
 **Tech Stack:**
 
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS_v3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Swiper](https://img.shields.io/badge/Swiper.js-6332F6?style=flat-square)
 ![Express](https://img.shields.io/badge/Express.js-000?style=flat-square&logo=express)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens)
 
 **Cách chạy:**
 ```bash
 # Backend
 cd BT04_23110193_DinhNguyenDucDuy/ExpressJS01
 npm install
-npm run seed   # Seed 20 sản phẩm laptop
+npm run seed   # Seed dữ liệu laptop/phụ kiện
 npm run dev    # http://localhost:8080
 
 # Frontend

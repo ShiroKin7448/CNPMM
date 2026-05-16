@@ -1,32 +1,35 @@
 import { useNavigate } from "react-router-dom";
 import { FiShoppingBag, FiArrowRight, FiZap } from "react-icons/fi";
-import { HiLightningBolt } from "react-icons/hi";
+
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1771015310937-6754da25e49a?auto=format&fit=crop&w=1800&q=85";
 
 const HeroBanner = ({ user }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative overflow-hidden rounded-3xl mb-10 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-8 md:p-12 text-white shadow-xl shadow-indigo-200">
-      {/* Decorative blobs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-400/20 rounded-full translate-y-1/2 -translate-x-1/4 blur-2xl pointer-events-none" />
-
-      {/* Floating icons */}
-      <div className="absolute top-8 right-8 opacity-20 hidden md:block">
-        <div className="text-8xl select-none">💻</div>
-      </div>
+    <div
+      className="relative overflow-hidden rounded-3xl mb-10 p-8 md:p-12 text-white shadow-xl"
+      style={{
+        backgroundImage:
+          `linear-gradient(100deg, rgba(0,0,0,0.92) 0%, rgba(101,101,101,0.72) 48%, rgba(192,255,107,0.36) 100%), url(${HERO_IMAGE})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        boxShadow: "0 22px 60px rgba(0,0,0,0.22)",
+      }}
+    >
 
       <div className="relative z-10 max-w-2xl">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 text-sm font-medium mb-5">
-          <FiZap size={14} className="text-yellow-300" />
+          <FiZap size={14} style={{ color: "#C0FF6B" }} />
           <span>Chào mừng, {user?.name || "bạn"}! 👋</span>
         </div>
 
         <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-4">
           Laptop & Phụ Kiện
           <br />
-          <span className="text-yellow-300">Chính Hãng Giá Tốt</span>
+          <span style={{ color: "#C0FF6B" }}>Chính Hãng Giá Tốt</span>
         </h1>
 
         <p className="text-white/80 text-base md:text-lg mb-8 max-w-lg leading-relaxed">
@@ -37,7 +40,8 @@ const HeroBanner = ({ user }) => {
         <div className="flex flex-wrap gap-3">
           <button
             onClick={() => navigate("/shop")}
-            className="bg-white text-indigo-700 font-bold px-6 py-3 rounded-xl flex items-center gap-2 hover:bg-yellow-50 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+            className="bg-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+            style={{ color: "#000000" }}
           >
             <FiShoppingBag size={18} /> Mua Sắm Ngay
           </button>
@@ -53,7 +57,7 @@ const HeroBanner = ({ user }) => {
         <div className="flex gap-8 mt-8 pt-6 border-t border-white/20">
           {[["500+", "Sản phẩm"], ["10K+", "Khách hàng"], ["4.9★", "Đánh giá"]].map(([num, label]) => (
             <div key={label}>
-              <div className="text-xl font-extrabold text-yellow-300">{num}</div>
+              <div className="text-xl font-extrabold" style={{ color: "#C0FF6B" }}>{num}</div>
               <div className="text-xs text-white/70">{label}</div>
             </div>
           ))}

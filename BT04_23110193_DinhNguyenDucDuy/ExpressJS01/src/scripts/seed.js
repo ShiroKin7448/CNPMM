@@ -2,13 +2,14 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import Category from "../models/category.js";
 import Product from "../models/product.js";
+import { getProductImages } from "../data/productImages.js";
 dotenv.config();
 
 const categories = [
-  { name: "Laptop Gaming", slug: "laptop-gaming", icon: "🎮", color: "#EF4444", description: "Laptop chuyên game hiệu năng cao" },
-  { name: "Laptop Văn Phòng", slug: "laptop-van-phong", icon: "💼", color: "#3B82F6", description: "Laptop mỏng nhẹ cho công việc" },
-  { name: "MacBook", slug: "macbook", icon: "🍎", color: "#8B5CF6", description: "Dòng MacBook Apple chính hãng" },
-  { name: "Phụ Kiện", slug: "phu-kien", icon: "🖱️", color: "#10B981", description: "Chuột, bàn phím, tai nghe..." },
+  { name: "Laptop Gaming", slug: "laptop-gaming", icon: "🎮", color: "#000000", description: "Laptop chuyên game hiệu năng cao" },
+  { name: "Laptop Văn Phòng", slug: "laptop-van-phong", icon: "💼", color: "#656565", description: "Laptop mỏng nhẹ cho công việc" },
+  { name: "MacBook", slug: "macbook", icon: "🍎", color: "#C0FF6B", description: "Dòng MacBook Apple chính hãng" },
+  { name: "Phụ Kiện", slug: "phu-kien", icon: "🖱️", color: "#000000", description: "Chuột, bàn phím, tai nghe..." },
 ];
 
 const imgs = {
@@ -71,6 +72,7 @@ const seed = async () => {
 
   const productsWithSlug = products.map((p, i) => ({
     ...p,
+    images: getProductImages(p),
     slug: p.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[đĐ]/g, "d").replace(/[^a-z0-9 ]/g, "").trim().replace(/\s+/g, "-") + `-${i}`,
     rating: (4 + Math.random()).toFixed(1) * 1,
     reviewCount: Math.floor(Math.random() * 200) + 10,

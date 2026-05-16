@@ -17,7 +17,7 @@ const categorySchema = new mongoose.Schema(
     description: { type: String, default: "" },
     image: { type: String, default: "" },
     icon: { type: String, default: "💻" },
-    color: { type: String, default: "#4F46E5" }, // accent color cho UI
+    color: { type: String, default: "#000000" }, // accent color cho UI
     isActive: { type: Boolean, default: true },
   },
   { timestamps: true }

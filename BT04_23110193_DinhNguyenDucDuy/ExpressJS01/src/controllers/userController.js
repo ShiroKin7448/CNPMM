@@ -1,13 +1,8 @@
 import {
-  createUserService,
-  loginService,
-  getUserService,
-  getAccountService,
-  forgotPasswordService,
-  resetPasswordService,
-  updateUserService,
-  deleteUserService,
-  changePasswordService,
+  createUserService, loginService, getUserService, getAccountService,
+  forgotPasswordService, resetPasswordService,
+  updateUserService, deleteUserService, changePasswordService,
+  verifyEmailService, resendVerificationService,
 } from "../services/userService.js";
 
 // POST /v1/api/register
@@ -124,8 +119,32 @@ const changePasswordCtrl = async (req, res) => {
   }
 };
 
+// GET /v1/api/verify-email/:token
+const verifyEmail = async (req, res) => {
+  try {
+    const { token } = req.params;
+    const result = await verifyEmailService(token);
+    return res.status(result.EC === 0 ? 200 : 400).json(result);
+  } catch (error) {
+    return res.status(500).json({ EC: -1, EM: "Lỗi server", DT: null });
+  }
+};
+
+// POST /v1/api/resend-verification
+const resendVerification = async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) return res.status(400).json({ EC: 1, EM: "Vui lòng nhập email", DT: null });
+    const result = await resendVerificationService(email);
+    return res.status(result.EC === 0 ? 200 : 400).json(result);
+  } catch (error) {
+    return res.status(500).json({ EC: -1, EM: "Lỗi server", DT: null });
+  }
+};
+
 export {
   createUser, handleLogin, getUser, getAccount,
   forgotPassword, resetPassword,
   updateUserCtrl, deleteUserCtrl, changePasswordCtrl,
+  verifyEmail, resendVerification,
 };

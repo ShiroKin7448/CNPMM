@@ -10,6 +10,13 @@ export const loginApi = (email, password) =>
 export const fetchAccountApi = () =>
   instance.get("/v1/api/account");
 
+// Email Verification
+export const verifyEmailApi = (token) =>
+  instance.get(`/v1/api/verify-email/${token}`);
+
+export const resendVerificationApi = (email) =>
+  instance.post("/v1/api/resend-verification", { email });
+
 // ── User Management ───────────────────────────────────
 export const getUserApi = () =>
   instance.get("/v1/api/user");

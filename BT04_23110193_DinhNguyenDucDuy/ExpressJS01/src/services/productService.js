@@ -1,5 +1,35 @@
 import Product from "../models/product.js";
 import Category from "../models/category.js";
+import { applyProductImages } from "../data/productImages.js";
+
+const categoryColors = {
+  "laptop-gaming": "#000000",
+  "laptop-van-phong": "#656565",
+  macbook: "#C0FF6B",
+  "phu-kien": "#000000",
+};
+
+const applyCategoryPalette = (category) => {
+  if (!category) return category;
+  return { ...category, color: categoryColors[category.slug] || category.color };
+};
+
+const decorateProduct = (product) => {
+  const themed = applyProductImages(product);
+  return themed?.category
+    ? { ...themed, category: applyCategoryPalette(themed.category) }
+    : themed;
+};
+
+const decorateProducts = (products = []) => products.map(decorateProduct);
+
+const cleanText = (value = "") => value.toString().trim();
+const escapeRegex = (value = "") => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const parsePrice = (value, fallback) => {
+  if (value === undefined || value === null || value === "") return fallback;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+};
 
 // =====================
 // Helper: tạo slug từ tên
@@ -33,31 +63,46 @@ export const getProductsService = async (query) => {
     } = query;
 
     const filter = { isActive: true };
+    const searchText = cleanText(search);
+    const categorySlug = cleanText(category);
+    const brandText = cleanText(brand);
+    const tagText = cleanText(tag);
 
     // Tìm kiếm text
-    if (search.trim()) {
+    if (searchText) {
+      const searchPattern = escapeRegex(searchText);
       filter.$or = [
-        { name: { $regex: search, $options: "i" } },
-        { description: { $regex: search, $options: "i" } },
-        { brand: { $regex: search, $options: "i" } },
+        { name: { $regex: searchPattern, $options: "i" } },
+        { description: { $regex: searchPattern, $options: "i" } },
+        { brand: { $regex: searchPattern, $options: "i" } },
       ];
     }
 
     // Filter theo category slug
-    if (category) {
-      const cat = await Category.findOne({ slug: category });
-      if (cat) filter.category = cat._id;
+    if (categorySlug) {
+      const cat = await Category.findOne({ slug: categorySlug });
+      if (!cat) {
+        return {
+          EC: 0,
+          EM: "Lấy danh sách sản phẩm thành công",
+          DT: {
+            products: [],
+            pagination: { page: 1, limit: Number(limit) || 12, total: 0, totalPages: 0 },
+          },
+        };
+      }
+      filter.category = cat._id;
     }
 
     // Filter theo brand
-    if (brand) filter.brand = { $regex: brand, $options: "i" };
+    if (brandText) filter.brand = { $regex: `^${escapeRegex(brandText)}$`, $options: "i" };
 
     // Filter theo tag
-    if (tag) filter.tags = { $in: [tag] };
+    if (tagText) filter.tags = { $in: [tagText] };
 
     // Filter theo giá (dùng salePrice nếu có, ngược lại dùng price)
-    const priceMin = Number(minPrice);
-    const priceMax = Number(maxPrice);
+    const priceMin = Math.max(0, parsePrice(minPrice, 0));
+    const priceMax = Math.max(priceMin, parsePrice(maxPrice, 999999999));
     filter.$expr = {
       $and: [
         {
@@ -95,8 +140,8 @@ export const getProductsService = async (query) => {
         sortObj = { createdAt: -1 };
     }
 
-    const pageNum = Math.max(1, parseInt(page));
-    const limitNum = Math.min(50, Math.max(1, parseInt(limit)));
+    const pageNum = Math.max(1, parseInt(page, 10) || 1);
+    const limitNum = Math.min(50, Math.max(1, parseInt(limit, 10) || 12));
     const skip = (pageNum - 1) * limitNum;
 
     const [products, total] = await Promise.all([
@@ -113,7 +158,7 @@ export const getProductsService = async (query) => {
       EC: 0,
       EM: "Lấy danh sách sản phẩm thành công",
       DT: {
-        products,
+        products: decorateProducts(products),
         pagination: {
           page: pageNum,
           limit: limitNum,
@@ -141,7 +186,7 @@ export const getProductDetailService = async (id) => {
       return { EC: 1, EM: "Không tìm thấy sản phẩm", DT: null };
     }
 
-    return { EC: 0, EM: "Lấy chi tiết sản phẩm thành công", DT: product };
+    return { EC: 0, EM: "Lấy chi tiết sản phẩm thành công", DT: decorateProduct(product) };
   } catch (error) {
     console.error("getProductDetailService error:", error);
     return { EC: -1, EM: "Lỗi server khi lấy chi tiết sản phẩm", DT: null };
@@ -166,7 +211,7 @@ export const getSimilarProductsService = async (id) => {
       .sort({ sold: -1 })
       .lean();
 
-    return { EC: 0, EM: "Lấy sản phẩm tương tự thành công", DT: similar };
+    return { EC: 0, EM: "Lấy sản phẩm tương tự thành công", DT: decorateProducts(similar) };
   } catch (error) {
     console.error("getSimilarProductsService error:", error);
     return { EC: -1, EM: "Lỗi server", DT: [] };
@@ -185,7 +230,7 @@ export const getCategoriesService = async () => {
     return {
       EC: 0,
       EM: "Lấy danh sách danh mục thành công",
-      DT: categories,
+      DT: categories.map(applyCategoryPalette),
     };
   } catch (error) {
     console.error("getCategoriesService error:", error);
@@ -223,7 +268,12 @@ export const getHomeProductsService = async () => {
     return {
       EC: 0,
       EM: "Lấy dữ liệu trang chủ thành công",
-      DT: { sale, newest, bestSeller, featured },
+      DT: {
+        sale: decorateProducts(sale),
+        newest: decorateProducts(newest),
+        bestSeller: decorateProducts(bestSeller),
+        featured: decorateProducts(featured),
+      },
     };
   } catch (error) {
     console.error("getHomeProductsService error:", error);

@@ -36,7 +36,7 @@ const EditUserModal = ({ user, open, onClose, onSuccess }) => {
       confirmLoading={loading}
       okText="Lưu Thay Đổi"
       cancelText="Hủy"
-      okButtonProps={{ style: { background: "#4F46E5", borderColor: "#4F46E5" } }}
+      okButtonProps={{ style: { background: "#000000", borderColor: "#000000", color: "#C0FF6B" } }}
     >
       <Form
         form={form}

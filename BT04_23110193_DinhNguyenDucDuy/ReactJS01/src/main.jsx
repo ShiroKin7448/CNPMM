@@ -15,6 +15,7 @@ import ResetPassword from "./pages/reset-password.jsx";
 import ShopPage from "./pages/shop.jsx";
 import ProductDetailPage from "./pages/product-detail.jsx";
 import ProfilePage from "./pages/profile.jsx";
+import VerifyEmailPage from "./pages/verify-email.jsx";
 import { AuthWrapper } from "./components/context/auth.context.jsx";
 
 const router = createBrowserRouter([
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "shop",                    element: <ShopPage />          },
       { path: "product/:id",             element: <ProductDetailPage /> },
       { path: "profile",                 element: <ProfilePage />       },
+      { path: "verify-email/:token",     element: <VerifyEmailPage />   },
     ],
   },
 ]);
@@ -39,11 +41,14 @@ const router = createBrowserRouter([
 const antdLightTheme = {
   algorithm: theme.defaultAlgorithm,
   token: {
-    colorPrimary: "#4F46E5",
-    colorLink: "#4F46E5",
-    colorSuccess: "#10B981",
-    colorWarning: "#F59E0B",
-    colorError: "#EF4444",
+    colorPrimary: "#000000",
+    colorLink: "#000000",
+    colorSuccess: "#656565",
+    colorWarning: "#C0FF6B",
+    colorError: "#000000",
+    colorText: "#000000",
+    colorTextSecondary: "#656565",
+    colorBorder: "#D5D5D5",
     colorBgBase: "#ffffff",
     colorBgContainer: "#ffffff",
     borderRadius: 10,
