@@ -132,46 +132,6 @@ npm run dev        # http://localhost:5173
 
 ---
 
-<!--
-=======================================================
-  HƯỚNG DẪN THÊM BÀI TẬP MỚI (đọc kỹ trước khi thêm)
-=======================================================
-
-1. Tạo thư mục với đúng format tên:
-   BT[số]_23110193_DinhNguyenDucDuy
-
-2. Thêm 1 dòng vào bảng "Danh Sách Bài Tập" ở trên:
-   | BT0X | Tên bài | Tech Stack | [📁 Xem thư mục](./BT0X_.../) |
-
-3. Copy khối template dưới đây và điền thông tin:
-
----
-
-### 🟣 BT0X — Tên Bài Tập
-
-> **Thư mục:** [`BT0X_23110193_DinhNguyenDucDuy/`](./BT0X_23110193_DinhNguyenDucDuy/)
-
-Mô tả ngắn về bài tập này.
-
-**Chức năng:**
-- ✅ Chức năng 1
-- ✅ Chức năng 2
-
-**Tech Stack:**
-![...badge...]
-
-**Cách chạy:**
-```bash
-cd BT0X_...
-npm install
-npm start
-```
-
-=======================================================
--->
-
----
-
 ### 🟣 BT03(NHOM) — Redux + Page Wiring (Dự Án Nhóm)
 
 > **Thư mục:** [`BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/`](./BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/)
@@ -208,15 +168,17 @@ Bài tập cá nhân **API + UI** — cửa hàng **Laptop & Phụ Kiện** full
 - ✅ **Auth đầy đủ** — đăng ký, đăng nhập, xác nhận email, gửi lại xác nhận, quên mật khẩu, đặt lại mật khẩu
 - ✅ **Trang Shop** — search debounce, filter danh mục/tag/hãng/khoảng giá, sort, pagination, đồng bộ query string
 - ✅ **Sản phẩm** — nhiều ảnh demo khác nhau, card có badge, giá sale, rating, tồn kho, sản phẩm tương tự
+- ✅ **Chi tiết sản phẩm** — gallery ảnh, thumbnail, giá, tồn kho, số lượng, thông số kỹ thuật, sản phẩm tương tự
+- ✅ **Bộ lọc sản phẩm** — lọc theo danh mục, loại, hãng, khoảng giá, sort, chip lọc đang bật và URL chia sẻ được
 - ✅ **Trang chủ** — hero banner, danh mục và các section Giảm Giá / Bán Chạy / Mới Nhất / Nổi Bật
 - ✅ **User/Profile** — quản lý user, sửa/xóa user, đổi mật khẩu
 - ✅ **Backend API** — xử lý filter rỗng đúng, không còn lỗi `maxPrice=""` thành `0`, search escape regex an toàn hơn
 
 **Demo nhanh:**
 
-| Auth | Shop/filter |
-|---|---|
-| ![BT04 login](./BT04_23110193_DinhNguyenDucDuy/docs/demo/login.png) | ![BT04 shop filter](./BT04_23110193_DinhNguyenDucDuy/docs/demo/shop-filter.png) |
+| Auth | Shop/filter | Chi tiết sản phẩm |
+|---|---|---|
+| ![BT04 login](./BT04_23110193_DinhNguyenDucDuy/docs/demo/login.png) | ![BT04 shop filter](./BT04_23110193_DinhNguyenDucDuy/docs/demo/shop-filter.png) | ![BT04 product detail](./BT04_23110193_DinhNguyenDucDuy/docs/demo/product-detail.png) |
 
 **Tech Stack:**
 
@@ -277,6 +239,6 @@ Phần này tổng hợp nhanh các bài đã kiểm tra và các trang/API demo
 | BT01 | Đã chạy `/crud` trả HTTP 200 | `cd BT01_23110193_DinhNguyenDucDuy && npm start` | `http://localhost:8088/crud`, `/get-crud`, `/edit-crud?id=<userId>` |
 | BT02 | Đã cài dependency, API bảo vệ trả `401` khi chưa đăng nhập | `cd BT02_EditProfile_23110193_DinhNguyenDucDuy/EditProfile && npm install && npm start` | `POST http://localhost:3002/api/auth/edit-profile` |
 | BT03(NHOM) | Module Redux/ProfilePage, không có server độc lập | Copy `redux/` và `pages/ProfilePage.jsx` vào frontend nhóm | `/profile`, `/user/profile`, `/admin/profile`, `/login`, `/register` |
-| BT04 | Backend `/` và `/v1/api/products` trả HTTP 200; frontend build thành công | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/products/:id`, `/profile`, `/user` |
+| BT04 | Backend `/` và `/v1/api/products` trả HTTP 200; frontend build thành công | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/product/:id`, `/profile`, `/user` |
 
 BT02 đã được bổ sung README riêng tại [`BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md`](./BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md).

@@ -17,7 +17,7 @@
 
 ## Tổng Quan
 
-BT04 là ứng dụng **LaptopStore** fullstack gồm frontend React và backend Express/MongoDB. Project mở rộng từ phần quản lý người dùng ở BT03 thành một cửa hàng laptop/phụ kiện có đăng nhập, đăng ký, xác nhận email, quên mật khẩu, trang chủ sản phẩm, trang shop có lọc/sắp xếp/phân trang và trang chi tiết sản phẩm.
+BT04 là ứng dụng **LaptopStore** fullstack gồm frontend React và backend Express/MongoDB. Bài tập tập trung vào trải nghiệm mua sắm laptop/phụ kiện với đăng nhập, đăng ký, xác nhận email, quên mật khẩu, trang chủ sản phẩm, trang shop có lọc/sắp xếp/phân trang và trang chi tiết sản phẩm.
 
 Giao diện hiện dùng bộ màu:
 
@@ -42,6 +42,10 @@ Giao diện hiện dùng bộ màu:
 |---|---|
 | ![Quên mật khẩu](./docs/demo/forgot-password.png) | ![Shop filter](./docs/demo/shop-filter.png) |
 
+| Chi tiết sản phẩm | Bộ lọc sản phẩm |
+|---|---|
+| ![Chi tiết sản phẩm](./docs/demo/product-detail.png) | ![Bộ lọc sản phẩm](./docs/demo/shop-filter.png) |
+
 ## Trang Demo Local
 
 | Trang | URL | Ghi chú |
@@ -51,7 +55,7 @@ Giao diện hiện dùng bộ màu:
 | Đăng ký | `http://localhost:5173/register` | Form register + gửi xác nhận email |
 | Quên mật khẩu | `http://localhost:5173/forgot-password` | Gửi link reset mật khẩu |
 | Shop | `http://localhost:5173/shop` | Search, filter, sort, pagination |
-| Chi tiết sản phẩm | `http://localhost:5173/products/:id` | Thay `:id` bằng id sản phẩm thật |
+| Chi tiết sản phẩm | `http://localhost:5173/product/:id` | Thay `:id` bằng id sản phẩm thật |
 | Profile | `http://localhost:5173/profile` | Cần đăng nhập |
 | Quản lý user | `http://localhost:5173/user` | Cần đăng nhập/quyền phù hợp |
 
@@ -75,6 +79,16 @@ Giao diện hiện dùng bộ màu:
 - Bộ lọc đồng bộ với query string, có thể chia sẻ URL đã lọc.
 - Card sản phẩm có badge, ảnh riêng theo từng sản phẩm, giá sale, rating, số đã bán và trạng thái tồn kho.
 - Trang chi tiết sản phẩm có ảnh, thông số, số lượng, tồn kho và sản phẩm tương tự.
+
+### Chức Năng Lọc Sản Phẩm
+
+- Tìm kiếm theo tên/mô tả sản phẩm với debounce 400ms để giảm số lần gọi API.
+- Lọc theo danh mục, loại sản phẩm (`sale`, `new`, `best-seller`, `featured`), thương hiệu và khoảng giá.
+- Hỗ trợ khoảng giá nhanh như dưới 10 triệu, 10-25 triệu, 25-50 triệu, trên 50 triệu và nhập giá thủ công.
+- Sắp xếp theo mới nhất, bán chạy nhất, giá thấp đến cao, giá cao đến thấp và đánh giá cao nhất.
+- Hiển thị chip các bộ lọc đang bật, cho phép xóa từng chip hoặc xóa toàn bộ.
+- Đồng bộ bộ lọc lên query string để có thể chia sẻ URL, ví dụ `/shop?category=laptop-van-phong&brand=Dell&sort=price_desc`.
+- Backend xử lý filter ở endpoint `GET /v1/api/products`, bỏ qua giá trị rỗng để tránh lỗi `maxPrice=""` bị hiểu thành `0`.
 
 ### Quản Trị/User
 
