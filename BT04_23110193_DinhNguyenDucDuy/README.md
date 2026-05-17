@@ -42,6 +42,19 @@ Giao diện hiện dùng bộ màu:
 |---|---|
 | ![Quên mật khẩu](./docs/demo/forgot-password.png) | ![Shop filter](./docs/demo/shop-filter.png) |
 
+## Trang Demo Local
+
+| Trang | URL | Ghi chú |
+|---|---|---|
+| Trang chủ | `http://localhost:5173/` | Hero, danh mục, section sản phẩm |
+| Đăng nhập | `http://localhost:5173/login` | Form login |
+| Đăng ký | `http://localhost:5173/register` | Form register + gửi xác nhận email |
+| Quên mật khẩu | `http://localhost:5173/forgot-password` | Gửi link reset mật khẩu |
+| Shop | `http://localhost:5173/shop` | Search, filter, sort, pagination |
+| Chi tiết sản phẩm | `http://localhost:5173/products/:id` | Thay `:id` bằng id sản phẩm thật |
+| Profile | `http://localhost:5173/profile` | Cần đăng nhập |
+| Quản lý user | `http://localhost:5173/user` | Cần đăng nhập/quyền phù hợp |
+
 ---
 
 ## Chức Năng Chính

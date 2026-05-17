@@ -265,3 +265,18 @@ Tất cả bài tập trong repo này yêu cầu:
 *Môn: Các Công Nghệ Phần Mềm Mới*
 
 </div>
+
+---
+
+## Cập Nhật Demo Local
+
+Phần này tổng hợp nhanh các bài đã kiểm tra và các trang/API demo cần mở khi chấm bài.
+
+| Bài | Trạng thái kiểm tra | Lệnh chạy chính | Demo local |
+|---|---|---|---|
+| BT01 | Đã chạy `/crud` trả HTTP 200 | `cd BT01_23110193_DinhNguyenDucDuy && npm start` | `http://localhost:8088/crud`, `/get-crud`, `/edit-crud?id=<userId>` |
+| BT02 | Đã cài dependency, API bảo vệ trả `401` khi chưa đăng nhập | `cd BT02_EditProfile_23110193_DinhNguyenDucDuy/EditProfile && npm install && npm start` | `POST http://localhost:3002/api/auth/edit-profile` |
+| BT03(NHOM) | Module Redux/ProfilePage, không có server độc lập | Copy `redux/` và `pages/ProfilePage.jsx` vào frontend nhóm | `/profile`, `/user/profile`, `/admin/profile`, `/login`, `/register` |
+| BT04 | Backend `/` và `/v1/api/products` trả HTTP 200; frontend build thành công | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/products/:id`, `/profile`, `/user` |
+
+BT02 đã được bổ sung README riêng tại [`BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md`](./BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md).

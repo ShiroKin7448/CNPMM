@@ -161,6 +161,18 @@ File này là một phần của dự án lớn hơn. Trong dự án nhóm:
 
 Code được push lên nhánh `feature/edit-profile` của repo nhóm.
 
+## Trang Demo Khi Tích Hợp
+
+Phần BT03(NHOM) là module đóng góp Redux/ProfilePage, không có server độc lập. Sau khi copy vào frontend của dự án nhóm, có thể kiểm tra các route sau:
+
+| Trang | Route | Ghi chú |
+|---|---|---|
+| Profile người dùng | `/profile` | Xem và chỉnh sửa thông tin cá nhân |
+| Profile user | `/user/profile` | Route profile cho role user nếu app nhóm khai báo |
+| Profile admin | `/admin/profile` | Route profile cho role admin nếu app nhóm khai báo |
+| Login | `/login` | Tạo trạng thái đăng nhập trước khi vào profile |
+| Register/OTP | `/register` | Luồng tạo tài khoản trước khi kiểm tra profile |
+
 ---
 
 ## 🛠 Tech Stack

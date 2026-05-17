@@ -13,6 +13,15 @@ Dự án này là bài tập thực hành xây dựng hệ thống quản lý ng
 **3. Màn hình Sửa**
 ![Sửa User](https://github.com/user-attachments/assets/f1e73db8-bf4d-48ce-822a-95a60198f2c4)
 
+## Trang Demo Local
+
+| Màn hình | URL | Ghi chú |
+|---|---|---|
+| Form CRUD | `http://localhost:8088/crud` | Thêm người dùng mới |
+| Danh sách user | `http://localhost:8088/get-crud` | Xem dữ liệu từ MongoDB |
+| Sửa user | `http://localhost:8088/edit-crud?id=<userId>` | Cần thay `<userId>` bằng id thật |
+| Xóa user | `http://localhost:8088/delete-crud?id=<userId>` | Cần thay `<userId>` bằng id thật |
+
 ## 👨‍💻 Thông tin sinh viên
 *   **Họ và tên:** Đinh Nguyễn Đức Duy
 *   **Mã số sinh viên:** 23110193
@@ -53,4 +62,3 @@ Truy cập vào trình duyệt tại địa chỉ: `http://localhost:8088/crud` 
 *   **Read:** Hiển thị danh sách toàn bộ người dùng từ database.
 *   **Update:** Cập nhật thông tin cá nhân của người dùng.
 *   **Delete:** Xóa tài khoản người dùng khỏi hệ thống.
-
