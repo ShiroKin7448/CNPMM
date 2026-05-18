@@ -26,6 +26,7 @@
 | BT03 | FullStack — Node.js + React.js | Express.js · MongoDB · React · Ant Design · JWT | [📁 Xem thư mục](./BT03_23110193_DinhNguyenDucDuy/) |
 | BT03(NHOM) | Redux + Page Wiring — Dự án nhóm | React · Redux Toolkit · Axios · TailwindCSS | [📁 Xem thư mục](./BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/) |
 | BT04 | **E-Commerce — LaptopStore FullStack** | React · Vite · TailwindCSS · Express · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT04_23110193_DinhNguyenDucDuy/) |
+| BT04(Nhóm) | **Admin CMS + FAQ + Search + Forum persistence & moderation** | React · Redux Toolkit · TailwindCSS · Express · MongoDB · JWT | [📁 Xem thư mục](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/) |
 | BT05 | **LaptopStore 3D E-Commerce — Lazy Loading & Top Products** | React · Vite · Three.js · Swiper · Express · MongoDB · JWT | [📁 Xem thư mục](./BT05_23110193_DinhNguyenDucDuy/) |
 
 ---
@@ -207,6 +208,45 @@ npm run dev    # http://localhost:5173
 
 ---
 
+### BT04(Nhóm) — Admin CMS + FAQ + Search + Forum Persistence & Moderation
+
+> **Thư mục:** [`BT04(Nhóm)-23110193_DinhNguyenDucDuy/`](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/)
+> **README chi tiết:** [📄 Xem tại đây](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/README.md)
+
+Phần bài nhóm trong dự án **HCMUTE Student Consulting**, được đưa lên repo cá nhân với nội dung phụ trách: **Admin CMS + FAQ + Search + Forum persistence & moderation**. Dự án gồm backend Express/MongoDB và frontend React/Redux.
+
+**Chức năng nổi bật:**
+- **Admin CMS** — quản lý bài viết và FAQ bằng API thật, bảo vệ bằng quyền admin
+- **FAQ public** — hiển thị FAQ đã xuất bản, lọc theo danh mục và tìm kiếm nội dung
+- **Search** — tìm kiếm tập trung trên bài viết, FAQ và forum, kèm bộ lọc theo topic, khoa, loại nội dung, độ phổ biến và thời gian
+- **Forum persistence** — lưu chủ đề, trả lời, lượt vote và trạng thái giải quyết vào MongoDB
+- **Moderation** — admin có thể ghim/bỏ ghim chủ đề, xóa chủ đề và xóa trả lời
+- **Redux state** — tách state cho admin, FAQ, search và forum bằng Redux Toolkit
+
+**Các trang demo:**
+
+| Trang | URL local |
+|---|---|
+| Admin CMS | `http://localhost:3001/admin/cms` |
+| FAQ | `http://localhost:3001/faq` |
+| Search | `http://localhost:3001/search` |
+| Forum | `http://localhost:3001/forum` |
+
+**Cách chạy:**
+```bash
+# Backend
+cd BT04(Nhóm)-23110193_DinhNguyenDucDuy/backend
+npm install
+npm run dev    # http://localhost:3000
+
+# Frontend
+cd ../frontend
+npm install
+npm start      # http://localhost:3001
+```
+
+---
+
 ### 💻 BT05 — LaptopStore 3D E-Commerce
 
 > **Thư mục:** [`BT05_23110193_DinhNguyenDucDuy/`](./BT05_23110193_DinhNguyenDucDuy/)
@@ -291,6 +331,7 @@ Phần này tổng hợp nhanh các bài đã kiểm tra và các trang/API demo
 | BT02 | Đã cài dependency, API bảo vệ trả `401` khi chưa đăng nhập | `cd BT02_EditProfile_23110193_DinhNguyenDucDuy/EditProfile && npm install && npm start` | `POST http://localhost:3002/api/auth/edit-profile` |
 | BT03(NHOM) | Module Redux/ProfilePage, không có server độc lập | Copy `redux/` và `pages/ProfilePage.jsx` vào frontend nhóm | `/profile`, `/user/profile`, `/admin/profile`, `/login`, `/register` |
 | BT04 | Backend `/` và `/v1/api/products` trả HTTP 200; frontend build thành công | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/product/:id`, `/profile`, `/user` |
+| BT04(Nhóm) | Đã đóng gói source sạch từ `group/hcmute-student-consulting`; không đưa `.git`, `node_modules`, `build`, `.env` | Backend: `npm run dev`; Frontend: `npm start` | `/admin/cms`, `/faq`, `/search`, `/forum`, `/api/admin/articles`, `/api/faqs`, `/api/search`, `/api/forum/threads` |
 | BT05 | Backend top products và shop API trả dữ liệu; README/ảnh demo đã cập nhật đủ | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/product/:id`, `/profile`, `/v1/api/products/top` |
 
 BT02 đã được bổ sung README riêng tại [`BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md`](./BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md).
