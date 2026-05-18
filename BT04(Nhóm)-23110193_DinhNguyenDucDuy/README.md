@@ -19,6 +19,32 @@ Phần triển khai tập trung vào các module quản trị nội dung và tư
 
 ---
 
+## Demo Giao Diện
+
+Ảnh demo được chụp từ môi trường local với backend `http://localhost:3000` và frontend `http://localhost:3001`.
+
+| Home | Admin CMS |
+|---|---|
+| ![Trang chủ HCMUTE Student Consulting](./docs/demo/home.png) | ![Admin CMS quản lý bài viết và FAQ](./docs/demo/admin-cms.png) |
+
+| FAQ | Search |
+|---|---|
+| ![Trang FAQ public](./docs/demo/faq.png) | ![Trang tìm kiếm tập trung](./docs/demo/search.png) |
+
+| Forum |
+|---|
+| ![Trang forum có persistence và moderation](./docs/demo/forum.png) |
+
+Danh sách ảnh:
+
+- `home.png`: trang chủ dự án tư vấn sinh viên.
+- `admin-cms.png`: Admin CMS quản lý bài viết/FAQ bằng API thật.
+- `faq.png`: FAQ public, có tìm kiếm và danh mục.
+- `search.png`: tìm kiếm tập trung trên Article, FAQ và Forum.
+- `forum.png`: forum có chủ đề, trả lời, upvote, solved, pin/delete cho admin.
+
+---
+
 ## Chức Năng Chính
 
 ### Admin CMS
@@ -100,6 +126,7 @@ BT04(Nhóm)-23110193_DinhNguyenDucDuy/
 │   │   ├── redux/
 │   │   └── services/api.js
 │   └── package.json
+├── docs/demo/                  # Ảnh demo dùng trong README
 └── README.md
 ```
 

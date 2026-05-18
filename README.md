@@ -225,6 +225,14 @@ Phần bài nhóm trong dự án **HCMUTE Student Consulting**, được đưa l
 
 **Các trang demo:**
 
+| Home | Admin CMS |
+|---|---|
+| ![BT04 nhóm home](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/docs/demo/home.png) | ![BT04 nhóm admin CMS](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/docs/demo/admin-cms.png) |
+
+| FAQ | Search | Forum |
+|---|---|---|
+| ![BT04 nhóm FAQ](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/docs/demo/faq.png) | ![BT04 nhóm search](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/docs/demo/search.png) | ![BT04 nhóm forum](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/docs/demo/forum.png) |
+
 | Trang | URL local |
 |---|---|
 | Admin CMS | `http://localhost:3001/admin/cms` |
