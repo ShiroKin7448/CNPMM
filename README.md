@@ -26,6 +26,7 @@
 | BT03 | FullStack — Node.js + React.js | Express.js · MongoDB · React · Ant Design · JWT | [📁 Xem thư mục](./BT03_23110193_DinhNguyenDucDuy/) |
 | BT03(NHOM) | Redux + Page Wiring — Dự án nhóm | React · Redux Toolkit · Axios · TailwindCSS | [📁 Xem thư mục](./BT03(NHOM)_Redux_Page_Wiring_23110193_DinhNguyenDucDuy/) |
 | BT04 | **E-Commerce — LaptopStore FullStack** | React · Vite · TailwindCSS · Express · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT04_23110193_DinhNguyenDucDuy/) |
+| BT05 | **LaptopStore 3D E-Commerce — Lazy Loading & Top Products** | React · Vite · Three.js · Swiper · Express · MongoDB · JWT | [📁 Xem thư mục](./BT05_23110193_DinhNguyenDucDuy/) |
 
 ---
 
@@ -206,6 +207,56 @@ npm run dev    # http://localhost:5173
 
 ---
 
+### 💻 BT05 — LaptopStore 3D E-Commerce
+
+> **Thư mục:** [`BT05_23110193_DinhNguyenDucDuy/`](./BT05_23110193_DinhNguyenDucDuy/)
+> **README chi tiết:** [📄 Xem tại đây](./BT05_23110193_DinhNguyenDucDuy/README.md)
+
+Bài tập cá nhân phát triển tiếp từ BT04, bổ sung chức năng lazy loading sản phẩm theo danh mục và top 10 sản phẩm bán chạy/xem nhiều bằng carousel ngang. Giao diện được làm mới bằng nền 3D chủ đề laptop/công nghệ, có hiệu ứng riêng cho từng nhóm trang nhưng vẫn giữ logic thống nhất toàn website.
+
+**Chức năng nổi bật:**
+- ✅ **Shop lazy loading** — tự load thêm sản phẩm khi kéo xuống cuối trang bằng `IntersectionObserver`
+- ✅ **API sản phẩm theo danh mục** — hỗ trợ `category`, `brand`, `tag`, `minPrice`, `maxPrice`, `sort`, `search`, `page`, `limit`
+- ✅ **Top 10 bán chạy** — API `/v1/api/products/top?type=best-selling`, UI carousel ngang có mũi tên điều hướng
+- ✅ **Top 10 xem nhiều** — API `/v1/api/products/top?type=most-viewed`, tự tăng `viewCount` khi mở chi tiết sản phẩm
+- ✅ **Bộ lọc nâng cao** — filter theo danh mục, hãng, loại sản phẩm, khoảng giá, sort và đồng bộ query string
+- ✅ **Trang chi tiết sản phẩm** — gallery ảnh, giá, tồn kho, thông số, sản phẩm tương tự
+- ✅ **Auth/Profile** — đăng nhập, đăng ký, quên mật khẩu, xác nhận email, đổi mật khẩu
+- ✅ **Giao diện 3D** — dùng Three.js, Swiper và hiệu ứng theo từng trang
+
+**Demo nhanh:**
+
+| Trang chủ/top sản phẩm | Shop/filter | Chi tiết sản phẩm | Profile |
+|---|---|---|---|
+| ![BT05 home carousel](./BT05_23110193_DinhNguyenDucDuy/docs/demo/home.png) | ![BT05 shop filter](./BT05_23110193_DinhNguyenDucDuy/docs/demo/shop-filter.png) | ![BT05 product detail](./BT05_23110193_DinhNguyenDucDuy/docs/demo/product-detail.png) | ![BT05 profile](./BT05_23110193_DinhNguyenDucDuy/docs/demo/profile.png) |
+
+**Tech Stack:**
+
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS_v3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000?style=flat-square&logo=threedotjs&logoColor=white)
+![Swiper](https://img.shields.io/badge/Swiper.js-6332F6?style=flat-square)
+![Express](https://img.shields.io/badge/Express.js-000?style=flat-square&logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens)
+
+**Cách chạy:**
+```bash
+# Backend
+cd BT05_23110193_DinhNguyenDucDuy/ExpressJS01
+npm install
+npm run seed
+npm run dev    # http://localhost:8080
+
+# Frontend
+cd ../ReactJS01
+npm install
+npm run dev    # http://localhost:5173
+```
+
+---
+
 ## 🛠 Yêu Cầu Hệ Thống
 
 Tất cả bài tập trong repo này yêu cầu:
@@ -240,5 +291,6 @@ Phần này tổng hợp nhanh các bài đã kiểm tra và các trang/API demo
 | BT02 | Đã cài dependency, API bảo vệ trả `401` khi chưa đăng nhập | `cd BT02_EditProfile_23110193_DinhNguyenDucDuy/EditProfile && npm install && npm start` | `POST http://localhost:3002/api/auth/edit-profile` |
 | BT03(NHOM) | Module Redux/ProfilePage, không có server độc lập | Copy `redux/` và `pages/ProfilePage.jsx` vào frontend nhóm | `/profile`, `/user/profile`, `/admin/profile`, `/login`, `/register` |
 | BT04 | Backend `/` và `/v1/api/products` trả HTTP 200; frontend build thành công | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/product/:id`, `/profile`, `/user` |
+| BT05 | Backend top products và shop API trả dữ liệu; README/ảnh demo đã cập nhật đủ | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/product/:id`, `/profile`, `/v1/api/products/top` |
 
 BT02 đã được bổ sung README riêng tại [`BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md`](./BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md).
