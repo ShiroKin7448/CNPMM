@@ -1,0 +1,92 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import connection from "./config/database.js";
+import configViewEngine from "./config/viewEngine.js";
+import apiRouter from "./routes/api.js";
+import { startMomoPendingPaymentSweeper } from "./services/orderService.js";
+
+// Load environment variables
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 8080;
+const defaultAllowedOrigins = ["http://localhost:5173", "http://127.0.0.1:5173"];
+const allowedOrigins = Array.from(new Set([
+  ...defaultAllowedOrigins,
+  ...(process.env.FRONTEND_URL || "").split(","),
+].map((origin) => origin.trim()).filter(Boolean)));
+
+// =====================
+// Middleware
+// =====================
+
+// CORS - cho phép frontend gọi API
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error(`CORS blocked: ${origin}`));
+  },
+  credentials: true,
+}));
+
+// Body Parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// View Engine (EJS)
+configViewEngine(app);
+
+// =====================
+// Routes
+// =====================
+
+// Route mặc định - kiểm tra server
+app.get("/", (req, res) => {
+  res.json({
+    EC: 0,
+    EM: "Server đang hoạt động!",
+    DT: {
+      name: "BT06 - LaptopStore API + E-Commerce",
+      version: "1.0.0",
+      author: "23110193 - Đinh Nguyễn Đức Duy",
+    },
+  });
+});
+
+// API Routes - tiền tố /v1/api/
+app.use("/v1/api", apiRouter);
+
+// 404 Handler
+app.use((req, res) => {
+  res.status(404).json({
+    EC: -1,
+    EM: "Route không tồn tại",
+    DT: null,
+  });
+});
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+  console.error("Global error:", err);
+  res.status(500).json({
+    EC: -1,
+    EM: "Lỗi server nội bộ",
+    DT: null,
+  });
+});
+
+// =====================
+// Khởi động server
+// =====================
+const startServer = async () => {
+  await connection(); // Kết nối MongoDB
+  app.listen(PORT, () => {
+    console.log(`🚀 Server đang chạy tại http://localhost:${PORT}`);
+    console.log(`📦 MongoDB URL: ${process.env.MONGO_DB_URL}`);
+    console.log(`🌍 Frontend URL: ${process.env.FRONTEND_URL}`);
+  });
+  startMomoPendingPaymentSweeper();
+};
+
+startServer();

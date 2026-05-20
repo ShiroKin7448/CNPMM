@@ -28,6 +28,7 @@
 | BT04 | **E-Commerce — LaptopStore FullStack** | React · Vite · TailwindCSS · Express · MongoDB · JWT · Nodemailer | [📁 Xem thư mục](./BT04_23110193_DinhNguyenDucDuy/) |
 | BT04(Nhóm) | **Admin CMS + FAQ + Search + Forum persistence & moderation** | React · Redux Toolkit · TailwindCSS · Express · MongoDB · JWT | [📁 Xem thư mục](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/) |
 | BT05 | **LaptopStore 3D E-Commerce — Lazy Loading & Top Products** | React · Vite · Three.js · Swiper · Express · MongoDB · JWT | [📁 Xem thư mục](./BT05_23110193_DinhNguyenDucDuy/) |
+| BT06 | **LaptopStore 3D E-Commerce — Cart, COD, MoMo Sandbox & Admin Orders** | React · Vite · Three.js · Express · MongoDB · MoMo Sandbox · JWT | [📁 Xem thư mục](./BT06_23110193_DinhNguyenDucDuy/) |
 
 ---
 
@@ -305,6 +306,54 @@ npm run dev    # http://localhost:5173
 
 ---
 
+### 💳 BT06 — LaptopStore 3D E-Commerce: Cart, Checkout & Orders
+
+> **Thư mục:** [`BT06_23110193_DinhNguyenDucDuy/`](./BT06_23110193_DinhNguyenDucDuy/)
+> **README chi tiết:** [📄 Xem tại đây](./BT06_23110193_DinhNguyenDucDuy/README.md)
+
+Bài tập cá nhân phát triển tiếp từ BT05, bổ sung giỏ hàng lưu MongoDB, chọn riêng từng sản phẩm để thanh toán, checkout COD và MoMo sandbox, lịch sử đơn hàng, theo dõi trạng thái đơn, xử lý hủy đơn/hoàn kho/hoàn tiền và dashboard admin quản lý đơn hàng, tiền, tồn kho.
+
+**Chức năng nổi bật:**
+- ✅ **Giỏ hàng DB** — thêm/xóa/cập nhật số lượng, chọn từng sản phẩm hoặc nhóm sản phẩm để thanh toán
+- ✅ **Checkout COD** — đơn COD chỉ chuyển `PAID` khi admin cập nhật đã giao thành công
+- ✅ **MoMo sandbox thật** — tạo `payUrl`, màn quét QR, callback return/IPN, query trạng thái và refund
+- ✅ **Hết hạn MoMo pending** — nếu người dùng thoát không thanh toán, đơn tự `CANCELLED/FAILED`, hoàn kho và đưa sản phẩm về lại giỏ
+- ✅ **Theo dõi đơn hàng** — lịch sử mua hàng, timeline trạng thái, hủy trực tiếp/yêu cầu hủy theo nghiệp vụ
+- ✅ **Dashboard admin** — quản lý trạng thái đơn, COD chờ thu, MoMo chờ thanh toán, chờ hoàn tiền, đã hoàn tiền và tồn kho
+
+**Demo nhanh:**
+
+| Giỏ hàng | Checkout COD | MoMo QR |
+|---|---|---|
+| ![BT06 cart](./BT06_23110193_DinhNguyenDucDuy/docs/demo/bt06-cart.png) | ![BT06 checkout COD](./BT06_23110193_DinhNguyenDucDuy/docs/demo/bt06-checkout-cod.png) | ![BT06 MoMo QR](./BT06_23110193_DinhNguyenDucDuy/docs/demo/bt06-momo-qr.png) |
+
+| Đơn hàng | Theo dõi đơn | Admin dashboard |
+|---|---|---|
+| ![BT06 orders](./BT06_23110193_DinhNguyenDucDuy/docs/demo/bt06-orders.png) | ![BT06 order detail](./BT06_23110193_DinhNguyenDucDuy/docs/demo/bt06-order-detail.png) | ![BT06 admin](./BT06_23110193_DinhNguyenDucDuy/docs/demo/bt06-admin-dashboard.png) |
+
+**Cách chạy:**
+```bash
+# Backend
+cd BT06_23110193_DinhNguyenDucDuy/ExpressJS01
+npm install
+npm run seed
+npm run dev    # http://localhost:8080
+
+# Frontend
+cd ../ReactJS01
+npm install
+npm run dev    # http://localhost:5173
+```
+
+Tài khoản seed:
+
+```text
+User:  demo@bt06.local  / 123456
+Admin: admin@bt06.local / 123456
+```
+
+---
+
 ## 🛠 Yêu Cầu Hệ Thống
 
 Tất cả bài tập trong repo này yêu cầu:
@@ -341,5 +390,6 @@ Phần này tổng hợp nhanh các bài đã kiểm tra và các trang/API demo
 | BT04 | Backend `/` và `/v1/api/products` trả HTTP 200; frontend build thành công | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/product/:id`, `/profile`, `/user` |
 | BT04(Nhóm) | Đã đóng gói source sạch từ `group/hcmute-student-consulting`; không đưa `.git`, `node_modules`, `build`, `.env` | Backend: `npm run dev`; Frontend: `npm start` | `/admin/cms`, `/faq`, `/search`, `/forum`, `/api/admin/articles`, `/api/faqs`, `/api/search`, `/api/forum/threads` |
 | BT05 | Backend top products và shop API trả dữ liệu; README/ảnh demo đã cập nhật đủ | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/product/:id`, `/profile`, `/v1/api/products/top` |
+| BT06 | Backend COD/MoMo sandbox, giỏ hàng, orders, admin dashboard và ảnh demo đã cập nhật đủ | Backend: `npm run dev`; Frontend: `npm run dev` | `/cart`, `/checkout`, `/payment/momo-return`, `/orders`, `/orders/:id`, `/admin`, `/v1/api/momo/ipn` |
 
 BT02 đã được bổ sung README riêng tại [`BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md`](./BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md).
