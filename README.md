@@ -29,6 +29,7 @@
 | BT04(Nhóm) | **Admin CMS + FAQ + Search + Forum persistence & moderation** | React · Redux Toolkit · TailwindCSS · Express · MongoDB · JWT | [📁 Xem thư mục](./BT04(Nhóm)-23110193_DinhNguyenDucDuy/) |
 | BT05 | **LaptopStore 3D E-Commerce — Lazy Loading & Top Products** | React · Vite · Three.js · Swiper · Express · MongoDB · JWT | [📁 Xem thư mục](./BT05_23110193_DinhNguyenDucDuy/) |
 | BT06 | **LaptopStore 3D E-Commerce — Cart, COD, MoMo Sandbox & Admin Orders** | React · Vite · Three.js · Express · MongoDB · MoMo Sandbox · JWT | [📁 Xem thư mục](./BT06_23110193_DinhNguyenDucDuy/) |
+| BT07 | **LaptopStore Loyalty E-Commerce — Reviews, Favorites, Voucher & Points** | React · Vite · Three.js · Express · MongoDB · JWT | [📁 Xem thư mục](./BT07_23110193_DinhNguyenDucDuy/) |
 
 ---
 
@@ -354,6 +355,53 @@ Admin: admin@bt06.local / 123456
 
 ---
 
+### 🎁 BT07 — LaptopStore Loyalty E-Commerce
+
+> **Thư mục:** [`BT07_23110193_DinhNguyenDucDuy/`](./BT07_23110193_DinhNguyenDucDuy/)
+> **README chi tiết:** [📄 Xem tại đây](./BT07_23110193_DinhNguyenDucDuy/README.md)
+
+Bài tập cá nhân phát triển tiếp từ BT06, bổ sung hệ thống chăm sóc khách hàng: bình luận sản phẩm đã mua thành công, thưởng voucher hoặc điểm sau đánh giá, yêu thích, sản phẩm đã xem, kho điểm, hạng thành viên và quản lý khuyến mãi phía admin.
+
+**Chức năng nổi bật:**
+- ✅ **Bình luận xác thực** — chỉ đơn `DELIVERED` mới được đánh giá; mỗi đánh giá nhận voucher hoặc điểm
+- ✅ **Yêu thích và đã xem** — lưu sản phẩm yêu thích, lịch sử xem gần nhất, sản phẩm tương tự
+- ✅ **Thống kê sản phẩm** — hiển thị số khách mua và số khách bình luận
+- ✅ **Voucher và điểm** — áp mã giảm giá, đổi điểm khi checkout; hoàn ưu đãi nếu hủy đơn
+- ✅ **Hạng thành viên** — `MEMBER`, `SILVER`, `GOLD`, `DIAMOND` theo tổng chi tiêu
+- ✅ **Admin loyalty** — quản lý voucher, kho điểm, hạng thành viên; xem sản phẩm và vị trí giao từng đơn
+
+**Demo nhanh:**
+
+| Kho thành viên | Checkout ưu đãi | Bình luận sản phẩm |
+|---|---|---|
+| ![BT07 kho thành viên](./BT07_23110193_DinhNguyenDucDuy/docs/demo/bt07-member-store.png) | ![BT07 checkout](./BT07_23110193_DinhNguyenDucDuy/docs/demo/bt07-checkout-benefits.png) | ![BT07 bình luận](./BT07_23110193_DinhNguyenDucDuy/docs/demo/bt07-product-reviews.png) |
+
+| Admin voucher và hạng thành viên | Admin xem sản phẩm và vị trí giao |
+|---|---|
+| ![BT07 admin loyalty](./BT07_23110193_DinhNguyenDucDuy/docs/demo/bt07-admin-loyalty.png) | ![BT07 admin order detail](./BT07_23110193_DinhNguyenDucDuy/docs/demo/bt07-admin-order-location.png) |
+
+**Cách chạy:**
+```bash
+# Backend
+cd BT07_23110193_DinhNguyenDucDuy/ExpressJS01
+npm install
+npm run seed
+npm run dev    # http://localhost:8080
+
+# Frontend
+cd ../ReactJS01
+npm install
+npm run dev    # http://localhost:5173
+```
+
+Tài khoản seed:
+
+```text
+User:  demo@bt07.local  / 123456
+Admin: admin@bt07.local / 123456
+```
+
+---
 ## 🛠 Yêu Cầu Hệ Thống
 
 Tất cả bài tập trong repo này yêu cầu:
@@ -391,5 +439,6 @@ Phần này tổng hợp nhanh các bài đã kiểm tra và các trang/API demo
 | BT04(Nhóm) | Đã đóng gói source sạch từ `group/hcmute-student-consulting`; không đưa `.git`, `node_modules`, `build`, `.env` | Backend: `npm run dev`; Frontend: `npm start` | `/admin/cms`, `/faq`, `/search`, `/forum`, `/api/admin/articles`, `/api/faqs`, `/api/search`, `/api/forum/threads` |
 | BT05 | Backend top products và shop API trả dữ liệu; README/ảnh demo đã cập nhật đủ | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/product/:id`, `/profile`, `/v1/api/products/top` |
 | BT06 | Backend COD/MoMo sandbox, giỏ hàng, orders, admin dashboard và ảnh demo đã cập nhật đủ | Backend: `npm run dev`; Frontend: `npm run dev` | `/cart`, `/checkout`, `/payment/momo-return`, `/orders`, `/orders/:id`, `/admin`, `/v1/api/momo/ipn` |
+| BT07 | Review xác thực, voucher, kho điểm, hạng thành viên, yêu thích, đã xem và admin loyalty đã kiểm tra đủ | Backend: `npm run seed && npm run dev`; Frontend: `npm run dev` | `/store`, `/product/:id`, `/checkout`, `/admin`, `/admin/loyalty` |
 
 BT02 đã được bổ sung README riêng tại [`BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md`](./BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md).
