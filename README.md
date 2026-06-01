@@ -9,6 +9,9 @@
 | **Đinh Nguyễn Đức Duy** | **23110193** | Nhóm 02 — Tiết 2-4 — Phòng A308 |
 
 [![GitHub](https://img.shields.io/badge/GitHub-ShiroKin7448-181717?style=for-the-badge&logo=github)](https://github.com/ShiroKin7448/CNPMM)
+
+**GitHub cá nhân:** [https://github.com/ShiroKin7448/CNPMM.git](https://github.com/ShiroKin7448/CNPMM.git)
+
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -30,6 +33,7 @@
 | BT05 | **LaptopStore 3D E-Commerce — Lazy Loading & Top Products** | React · Vite · Three.js · Swiper · Express · MongoDB · JWT | [📁 Xem thư mục](./BT05_23110193_DinhNguyenDucDuy/) |
 | BT06 | **LaptopStore 3D E-Commerce — Cart, COD, MoMo Sandbox & Admin Orders** | React · Vite · Three.js · Express · MongoDB · MoMo Sandbox · JWT | [📁 Xem thư mục](./BT06_23110193_DinhNguyenDucDuy/) |
 | BT07 | **LaptopStore Loyalty E-Commerce — Reviews, Favorites, Voucher & Points** | React · Vite · Three.js · Express · MongoDB · JWT | [📁 Xem thư mục](./BT07_23110193_DinhNguyenDucDuy/) |
+| BT07(NHOM) | **HCMUTE Student Consulting — Counselor Stats, Similar, Favorites & Reviews** | React · Redux Toolkit · Express · MongoDB | [📁 Xem thư mục](./BT07(NHOM)_23110193_DinhNguyenDucDuy/) |
 
 ---
 
@@ -402,6 +406,21 @@ Admin: admin@bt07.local / 123456
 ```
 
 ---
+
+### 👥 BT07(NHOM) — Phần Đóng Góp Counselor Của Duy
+
+> **Thư mục:** [`BT07(NHOM)_23110193_DinhNguyenDucDuy/`](./BT07(NHOM)_23110193_DinhNguyenDucDuy/)
+> **README chi tiết:** [📄 Xem tại đây](./BT07(NHOM)_23110193_DinhNguyenDucDuy/README.md)
+
+Phần đóng góp cá nhân trong dự án nhóm HCMUTE Student Consulting gồm đúng 3 file được phân công: backend counselor controller/routes và frontend `BookCounselorPage.jsx`.
+
+**Chức năng nổi bật:**
+- ✅ API tư vấn viên tương tự, stats và bình luận có phân trang
+- ✅ Validate ID tư vấn viên và giới hạn số bình luận mỗi trang
+- ✅ Nút yêu thích, lịch sử xem, stats, bình luận sinh viên và danh sách gợi ý tương tự
+- ✅ Nhánh nhóm: [`feature/counselor-similar-stats`](https://github.com/DangTranAnhQuan/hcmute-student-consulting/tree/feature/counselor-similar-stats)
+
+---
 ## 🛠 Yêu Cầu Hệ Thống
 
 Tất cả bài tập trong repo này yêu cầu:
@@ -440,5 +459,6 @@ Phần này tổng hợp nhanh các bài đã kiểm tra và các trang/API demo
 | BT05 | Backend top products và shop API trả dữ liệu; README/ảnh demo đã cập nhật đủ | Backend: `npm run dev`; Frontend: `npm run dev` | `/`, `/login`, `/register`, `/forgot-password`, `/shop`, `/product/:id`, `/profile`, `/v1/api/products/top` |
 | BT06 | Backend COD/MoMo sandbox, giỏ hàng, orders, admin dashboard và ảnh demo đã cập nhật đủ | Backend: `npm run dev`; Frontend: `npm run dev` | `/cart`, `/checkout`, `/payment/momo-return`, `/orders`, `/orders/:id`, `/admin`, `/v1/api/momo/ipn` |
 | BT07 | Review xác thực, voucher, kho điểm, hạng thành viên, yêu thích, đã xem và admin loyalty đã kiểm tra đủ | Backend: `npm run seed && npm run dev`; Frontend: `npm run dev` | `/store`, `/product/:id`, `/checkout`, `/admin`, `/admin/loyalty` |
+| BT07(NHOM) | Phần counselor của Duy đã kiểm tra cú pháp backend và build frontend | Tích hợp 3 file trong folder vào repo nhóm | `/book-counselor/:counselorId`, `/api/counselors/:id/similar`, `/api/counselors/:id/stats`, `/api/counselors/:id/reviews` |
 
 BT02 đã được bổ sung README riêng tại [`BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md`](./BT02_EditProfile_23110193_DinhNguyenDucDuy/README.md).
